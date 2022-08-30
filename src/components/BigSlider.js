@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 
 const BigSlider = () => {
@@ -32,7 +33,7 @@ const BigSlider = () => {
 
 
   return (
-    <section className="w-full max-w-[1500px]">
+    <section className="w-full max-w-[1500px] px-3">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -40,24 +41,18 @@ const BigSlider = () => {
           delay: 5000,
           disableOnInteraction: false,
         }}
+        pagination={{ clickable: true }}
         navigation={false}
-        modules={[Autoplay, Navigation]}
-        className="mySwiper md:h-[500px] h-[300px] mb-8 md:mb-0"
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper md:h-[500px] h-[300px] rounded-lg overflow-hidden mx-auto"
       >
 
         {data && data.map(movie => {
           return (
             <SwiperSlide key={movie.id} className="group w-full h-full bg-blue-500 relative">
-              <div className="w-full h-full">
+              <Link to="" className="w-full h-full block">
                 <img src={movie.cover} alt="slider" className="w-full h-full object-cover" />
-              </div>
-              <div className="duration-400 text-sm opacity-0 group-hover:opacity-100 md:text-base select-none w-full h-full absolute top-0 right-0 bg-gradient-to-t from-[#fcfcfc]">
-                <div className="w-full h-full container flex flex-col justify-end items-end px-4 md:py-20">
-                  <span className="md:text-2xl lg:text-3xl text-xl font-bold">{movie.detale.name}</span>
-                  <p className="mt-3 mb-6 text-gray-600">{movie.detale.sizen}</p>
-                  <button className="border border-orange-500 text-orange-500 px-4 py-2.5 rounded-lg hover:bg-orange-500 hover:text-white duration-300">تماشا کردن/دانلود</button>
-                </div>
-              </div>
+              </Link>
             </SwiperSlide>
           )
         })}
