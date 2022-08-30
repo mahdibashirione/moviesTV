@@ -1,13 +1,13 @@
 import BigSlider from "../components/BigSlider";
 import Header from "../components/Header";
-import SliderCategory from "../components/SliderCategory";
+import ListSlider from "../components/ListSlider";
 
 const HomPage = () => {
   return (
     <>
       <Header />
       <BigSlider />
-      <SliderCategory />
+      <ListSlider />
     </>
   );
 }

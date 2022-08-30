@@ -6,47 +6,48 @@ import { Link } from "react-router-dom";
 
 
 
-const SliderCategory = () => {
+const SliderCategory = ({ dataMovise, title }) => {
 
-  const [data, setData] = useState([
-    { id: 1, cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Aftab-Parast-6-207x290.jpg", faName: "افتاب پرست", enName: "Chameleons" },
-    { id: 2, cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Nobate-Leyli-20-207x290.jpg", faName: "نوبت لیلی", enName: " lily" },
-    { id: 3, cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Bi-Gonah-1-2-207x290.jpg", faName: "بی گناه", enName: "Bigonah" },
-    { id: 4, cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Khoon-Sard-2-207x290.jpg", faName: "خون سرد", enName: "Ice Blod" },
-    { id: 5, cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Yaghi-16-207x290.jpg", faName: "یاغی", enName: "Yaghi" },
-  ])
+
 
   const CardMovie = ({ movie }) => {
     return (
-      <Link to="#" className="flex flex-col justify-start items-start gap-y-1 mr-4">
-        <div className="w-[140px] md:w-[200px] h-[200px] md:h-[270px] overflow-hidden rounded-lg">
+      <Link to="#" className="group flex flex-col justify-start items-start gap-y-1 mr-2">
+        <div className="w-[140px] md:w-[200px] h-[200px] md:h-[270px] overflow-hidden rounded-lg relative">
           <img src={movie.cover} alt="cover-movie" className="w-full h-full object-cover" />
+          <div className="w-full h-full absolute top-0 right-0 bg-gradient-to-t from-zinc-900 bg-opacity-0 opacity-0 group-hover:opacity-100 duration-300 flex flex-col justify-end items-start gap-y-1 px-2 py-4">
+            <p className="text-white text-sm md:text-base">{movie.genre}</p>
+            <p className="text-white text-sm">
+              {movie.imdb}
+              <span className="ml-1 bg-yellow-500 rounded p-0.5 text-[11px]">IMDB</span>
+            </p>
+          </div>
+          <span className="absolute bottom-2 left-2 text-[11px] bg-yellow-500 p-1 rounded-md group-hover:opacity-0 duration-300 ">{movie.broadcastDays}</span>
         </div>
         <span className="text-base">سریال {movie.faName}</span>
-        <span className="text-gray-600 text-sm">{movie.enName}</span>
+        {movie.broadcastDays && <span className="text-gray-600 text-sm">{movie.episode ? ("قسمت" + movie.episode) : movie.enName}</span>}
       </Link>
     )
   }
 
-
   return (
-    <section className="w-full">
+    <article className="w-full">
       <div className="w-full container">
         <div className="w-full flex items-center justify-between px-4 py-6">
-          <span className="select-none text-sm md:text-base text-gray-600">سریال های ایرانی جدید</span>
-          <button className="text-sm md:text-base text-orange-500 md:hover:scale-110 duration-300">مشاهده همه</button>
+          <span className="select-none text-slate-900 font-bold">{title}</span>
+          <button className="text-sm text-gray-600 md:hover:scale-110 duration-300">مشاهده همه</button>
         </div>
-        <div className="w-full max-w-full flex items-center justify-start flex-nowrap overflow-scroll">
+        <div className="w-full max-w-full flex items-center justify-start flex-nowrap overflow-scroll pb-8">
 
-          {data && data.map(item => {
+          {dataMovise ? dataMovise.map(item => {
             return (
               <CardMovie movie={item} />
             )
-          })}
+          }) : <span>Loading...</span>}
 
         </div>
       </div>
-    </section>
+    </article>
   );
 }
 
