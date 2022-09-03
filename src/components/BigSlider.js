@@ -16,48 +16,49 @@ const BigSlider = () => {
 
   const [data, setData] = useState([
     {
-      id: 1, cover: "/image/bigSlider/1.jpg",
-      detale: {
-        name: "سریال See",
-        sizen: "فصل سوم",
-      }
+      id: 1,
+      cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Dc-League-of-Super-Pets-Header.jpg",
     },
     {
-      id: 2, cover: "/image/bigSlider/2.jpg",
-      detale: {
-        name: "سریال Snopircer",
-        sizen: "فصل دوم",
-      }
+      id: 2,
+      cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Samaritan-2022-Header.jpg",
+    },
+    {
+      id: 3,
+      cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Bigonah-1.jpg",
+    },
+    {
+      id: 4,
+      cover: "https://www.uptvs.com/wp-contents/uploads/2021/10/House-of-the-Dragon-s1-Header.jpg",
+    },
+    {
+      id: 5,
+      cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/See-s3-Header.jpg",
+    },
+    {
+      id: 6,
+      cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Dead-Zone-2022-Header-1.jpg",
+    },
+    {
+      id: 7,
+      cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/Shamshera-2022-Header-1.jpg",
+    },
+    {
+      id: 8,
+      cover: "https://www.uptvs.com/wp-contents/uploads/2022/08/luck-Header.jpg",
     },
   ])
 
 
   return (
-    <section className="w-full max-w-[1500px] px-3">
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        pagination={{ clickable: true }}
-        navigation={false}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper md:h-[500px] h-[300px] rounded-lg overflow-hidden mx-auto"
-      >
-
-        {data && data.map(movie => {
-          return (
-            <SwiperSlide key={movie.id} className="group w-full h-full bg-blue-500 relative">
-              <Link to="" className="w-full h-full block">
-                <img src={movie.cover} alt="slider" className="w-full h-full object-cover" />
-              </Link>
-            </SwiperSlide>
-          )
-        })}
-
-      </Swiper>
+    <section className="container w-full flex items-start justify-start gap-y-3 md:flex-wrap overflow-x-scroll">
+      {data && data.map(movies => {
+        return (
+          <Link to={"#"} className="min-w-[290px] md:max-w-[48%] lg:max-w-[32%] xl:max-w-[305px] max-w-[300px] w-full h-44 rounded-lg block overflow-hidden shadow-sm border mr-3">
+            <img src={movies.cover} className="w-full h-full object-cover" />
+          </Link>
+        )
+      })}
     </section>
   );
 }
