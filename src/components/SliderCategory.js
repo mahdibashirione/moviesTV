@@ -12,7 +12,7 @@ const SliderCategory = ({ dataMovies, title }) => {
 
   const CardMovie = ({ movie }) => {
     return (
-      <Link to="#" state={{ data: dataMovies }} className="group flex flex-col justify-start items-start gap-y-1 mr-2">
+      <Link to={`/movie/${movie.id}/${movie.faName}`} state={movie} className="group flex flex-col justify-start items-start gap-y-1 mr-2">
         <div className="w-[140px] md:w-[195px] h-[200px] md:h-[270px] overflow-hidden rounded-lg relative">
           <img src={movie.cover} alt="cover-movie" className="w-full h-full object-cover" />
           <div className="w-full h-full absolute top-0 right-0 bg-gradient-to-t from-zinc-900 bg-opacity-0 opacity-0 group-hover:opacity-100 duration-300 flex flex-col justify-end items-start gap-y-1 px-2 py-4">

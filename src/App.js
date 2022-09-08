@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/movie" element={<SingleMoviePage />} />
+        <Route path="/movie/:id/:name" element={<SingleMoviePage />} />
         <Route path="/user/login" element={<LoginPage />} />
         <Route path="/" element={<HomPage />} />
       </Routes>
