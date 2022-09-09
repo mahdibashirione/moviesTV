@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { FiMenu, FiSearch, FiChevronDown, } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { Disclosure } from '@headlessui/react'
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
 
@@ -35,13 +36,16 @@ const Header = () => {
   ])
 
   const nav = useRef()
+  const location = useLocation()
+
+  const isHomePage = location.pathname === "/"
 
   const handleCloseNavbar = (e) => {
     e.target.className.startsWith("navbar") && nav.current.classList.replace("left-0", "left-full")
   }
 
   return (
-    <header className="w-full sticky top-0 z-40 text-white bg-zinc-900/90 bg-blur">
+    <header className={`${isHomePage ? "sticky to-zinc-900/90" : "fixed"} w-full top-0 z-40 bg-gradient-to-b from-zinc-900/90 text-white bg-blur`}>
       <div className="container w-full px-4 py-4 md:py-0 flex justify-between items-center">
         <FiMenu className="text-xl outline-none cursor-pointer md:hidden" onClick={() => nav.current.classList.replace("left-full", "left-0")} />
         {/* navMobile */}
@@ -73,14 +77,14 @@ const Header = () => {
             })}
           </div>
         </div>
-        upTV
+        <span>online TV</span>
         {/*navPc*/}
-        <nav className="h-full hidden md:block">
+        <nav className="h-full hidden md:block text-sm lg:text-base">
           <ul className="h-full flex items-center justify-center gap-x-2">
             {navData.map(nav => {
               return (
                 //navTitle
-                <li className="group relative h-full cursor-pointer flex items-center justify-start gap-x-2 py-4 hover:text-orange-500 duration-200">
+                <li className="group relative h-full cursor-pointer flex items-center justify-start gap-x-2 py-5 hover:text-orange-500 duration-200">
                   {nav.title}
                   <FiChevronDown className="ml-2" />
                   {nav.items &&
