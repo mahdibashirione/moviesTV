@@ -51,11 +51,11 @@ const BigSlider = () => {
 
 
   return (
-    <section className="w-full bg-zinc-900/90 py-6">
-      <div className="w-full container flex items-start justify-start gap-y-3 md:flex-wrap overflow-x-scroll">
+    <section className="w-full bg-zinc-900/90">
+      <div className="py-6 px-2 w-full container gap-2.5 grid grid-rows-2 grid-cols-[repeat(4,300px)] xl:grid-cols-4 overflow-x-scroll">
         {data && data.map(movies => {
           return (
-            <Link to={"#"} className="min-w-[290px] md:max-w-[48%] lg:max-w-[32%] xl:max-w-[305px] max-w-[300px] w-full h-44 rounded-lg block overflow-hidden mr-3">
+            <Link to={"#"} className="w-full h-44 rounded-lg block overflow-hidden mr-3">
               <img src={movies.cover} className="w-full h-full object-cover" />
             </Link>
           )

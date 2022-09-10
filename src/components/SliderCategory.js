@@ -34,7 +34,7 @@ const SliderCategory = ({ dataMovies, title }) => {
     <article className="w-full">
       <div className="w-full container">
         <div className="w-full flex items-center justify-between p-4 pb-6">
-          <span className="select-none font-bold">{title}</span>
+          <span className="select-none font-bold lg:text-xl">{title}</span>
           <button className="text-sm text-gray-500 md:hover:scale-110 duration-300">مشاهده همه</button>
         </div>
         <div className="w-full max-w-full flex items-center justify-start flex-nowrap overflow-scroll pb-8">
