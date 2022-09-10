@@ -31,8 +31,11 @@ const Header = () => {
         { name: "همه فیلم های خارجی", url: "" },
       ]
     },
-    { title: "انیمیشن", url: "" },
-    { title: "دوبله فارسی", url: "" },
+    {
+      title: "انیمیشن",
+      url: "",
+      items: [{ name: "دوبله فارسی", url: "" }, { name: "زبان اصلی", url: "" },]
+    },
   ])
 
   const nav = useRef()
@@ -41,7 +44,7 @@ const Header = () => {
   const isHomePage = location.pathname === "/"
 
   const handleCloseNavbar = (e) => {
-    e.target.className.startsWith("navbar") && nav.current.classList.replace("left-0", "left-full")
+    e.target.className.includes("navbar") && nav.current.classList.replace("left-0", "left-full")
   }
 
   return (
@@ -49,18 +52,18 @@ const Header = () => {
       <div className="container w-full px-4 py-4 md:py-0 flex justify-between items-center">
         <FiMenu className="text-xl outline-none cursor-pointer md:hidden" onClick={() => nav.current.classList.replace("left-full", "left-0")} />
         {/* navMobile */}
-        <div onClick={e => handleCloseNavbar(e)} ref={nav} className="navbar md:hidden md:left-full absolute top-0 left-full duration-300 w-screen h-screen z-40 bg-zinc-900/80" >
-          <div className="w-[65%] h-full max-h-full bg-white overflow-y-scroll flex flex-col justify-start items-start">
+        <div onClick={e => handleCloseNavbar(e)} ref={nav} className="bg-blur navbar md:hidden md:left-full absolute top-0 left-full duration-300 w-screen h-screen z-40 bg-zinc-900/80" >
+          <div className="border-l border-gray-500 w-[65%] h-full max-h-full bg-zinc-900 text-white overflow-y-scroll flex flex-col justify-start items-start">
             {navData.map(nav => {
               return (
                 <Disclosure className="border-b">
                   {({ open }) => (
                     <>
-                      <Disclosure.Button className="flex w-full border-b justify-between items-center p-4 text-left text-slate-800 font-medium hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                      <Disclosure.Button className="flex w-full border-b border-gray-500 justify-between items-center p-4 text-left font-medium focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                         <span>{nav.title}</span>
                         <FiChevronDown />
                       </Disclosure.Button>
-                      <Disclosure.Panel className="w-full px-6 text-sm text-gray-500">
+                      <Disclosure.Panel className="w-full px-6 text-sm text-gray-300">
                         {nav.items &&
                           <ul className="w-full py-2">
                             {nav.items.map(navItem => {

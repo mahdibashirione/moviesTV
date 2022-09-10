@@ -5,7 +5,6 @@ import ListSlider from "../components/ListSlider";
 const HomPage = () => {
   return (
     <>
-      <Header />
       <BigSlider />
       <ListSlider />
     </>

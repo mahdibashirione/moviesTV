@@ -62,7 +62,6 @@ const SingleMoviePage = () => {
 
   return (
     <>
-      <Header />
       <section className="w-full max-w-[1600px] mx-auto">
         <article className="w-full h-[525px] md:h-[480px] relative">
           <div className="w-full h-full bg-gradient-to-t from-[#1C1C22]">

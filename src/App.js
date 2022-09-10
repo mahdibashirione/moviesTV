@@ -5,13 +5,11 @@ import SingleMoviePage from "./page/SingleMoviePage";
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/movie/:id/:name" element={<SingleMoviePage />} />
-        <Route path="/user/login" element={<LoginPage />} />
-        <Route path="/" element={<HomPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/movie/:id/:name" element={<SingleMoviePage />} />
+      <Route path="/user/login" element={<LoginPage />} />
+      <Route path="/" element={<HomPage />} />
+    </Routes>
   );
 }
 
