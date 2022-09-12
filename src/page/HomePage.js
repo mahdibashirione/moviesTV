@@ -1,11 +1,11 @@
-import BigSlider from "../components/BigSlider";
+import BannerNewMovies from "../components/BannerNewMovies";
 import Header from "../components/Header";
 import ListSlider from "../components/ListSlider";
 
 const HomPage = () => {
   return (
     <>
-      <BigSlider />
+      <BannerNewMovies />
       <ListSlider />
     </>
   );

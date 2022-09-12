@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import GET_DATA_SLIDER from "../utils/getDataSlider";
 import SliderCategory from "./SliderCategory";
 
 const ListSlider = () => {
 
-  const [data, setData] = useState(null)
+  const [dataSliderSerial, setDataSliderSerial] = useState(null)
+
+  useEffect(() => {
+    GET_DATA_SLIDER("/movies", setDataSliderSerial, "serial-iran")
+  }, [])
 
 
   const CardLoadingSlider = () => {
@@ -61,9 +66,9 @@ const ListSlider = () => {
 
   return (
     <section className="w-full">
-      {data ? <SliderCategory title="سریال های ایرانی جدید" dataMovies={data} /> : <CardLoadingSlider />}
-      {data ? <SliderCategory title="دوبله فارسی جدید" dataMovies={data} /> : <CardLoadingSlider />}
-      {data ? <SliderCategory title="انیمیشن" dataMovies={data} /> : <CardLoadingSlider />}
+      {dataSliderSerial ? <SliderCategory title="سریال های ایرانی جدید" dataMovies={dataSliderSerial} /> : <CardLoadingSlider />}
+      {dataSliderSerial ? <SliderCategory title="دوبله فارسی جدید" dataMovies={dataSliderSerial} /> : <CardLoadingSlider />}
+      {dataSliderSerial ? <SliderCategory title="انیمیشن" dataMovies={dataSliderSerial} /> : <CardLoadingSlider />}
     </section>
   );
 }

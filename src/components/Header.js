@@ -8,6 +8,7 @@ const Header = () => {
 
   const [navData, setNavData] = useState([
     {
+      id: 1,
       title: "فیلم خارجی",
       url: "",
       items: [
@@ -20,6 +21,7 @@ const Header = () => {
       ]
     },
     {
+      id: 2,
       title: "فیلم ایرانی",
       url: "",
       items: [
@@ -32,6 +34,7 @@ const Header = () => {
       ]
     },
     {
+      id: 3,
       title: "انیمیشن",
       url: "",
       items: [{ name: "دوبله فارسی", url: "" }, { name: "زبان اصلی", url: "" },]
@@ -56,7 +59,7 @@ const Header = () => {
           <div className="border-l border-gray-500 w-[65%] h-full max-h-full bg-zinc-900 text-white overflow-y-scroll flex flex-col justify-start items-start">
             {navData.map(nav => {
               return (
-                <Disclosure className="border-b">
+                <Disclosure key={nav.id} className="border-b">
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full border-b border-gray-500 justify-between items-center p-4 text-left font-medium focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
@@ -66,9 +69,9 @@ const Header = () => {
                       <Disclosure.Panel className="w-full px-6 text-sm text-gray-300">
                         {nav.items &&
                           <ul className="w-full py-2">
-                            {nav.items.map(navItem => {
+                            {nav.items.map((navItem, index) => {
                               return (
-                                <li><Link to={navItem.url} className="rounded whitespace-nowrap p-2.5 hover:bg-gray-200 hover:text-orange-500 flex w-full h-full" >{navItem.name}</Link></li>
+                                <li key={index}><Link to={navItem.url} className="rounded whitespace-nowrap p-2.5 hover:bg-gray-200 hover:text-gray-700 flex w-full h-full" >{navItem.name}</Link></li>
                               )
                             })}
                           </ul>}
@@ -87,14 +90,14 @@ const Header = () => {
             {navData.map(nav => {
               return (
                 //navTitle
-                <li className="group relative h-full cursor-pointer flex items-center justify-start gap-x-2 py-5 hover:text-orange-500 duration-200">
+                <li key={nav.id} className="group relative h-full cursor-pointer flex items-center justify-start gap-x-2 py-5 hover:text-orange-500 duration-200">
                   {nav.title}
                   <FiChevronDown className="ml-2" />
                   {nav.items &&
                     <ul className="group-hover:block hidden rounded-lg p-2 absolute min-w-full shadow border border-gray-400 bg-zinc-900/90 bg-blur top-[90%] right-0 text-white">
-                      {nav.items.map(navItem => {
+                      {nav.items.map((navItem, index) => {
                         return (
-                          <li><Link to={navItem.url} className="rounded whitespace-nowrap p-2 hover:text-orange-500 flex w-full h-full" >{navItem.name}</Link></li>
+                          <li key={index}><Link to={navItem.url} className="rounded whitespace-nowrap p-2 hover:text-orange-500 flex w-full h-full" >{navItem.name}</Link></li>
                         )
                       })}
                     </ul>}
