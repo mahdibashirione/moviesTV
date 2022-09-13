@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   const location = useLocation()
   const hideLocationName = ["/admin"]
 
-  const isHideLocation = hideLocationName.filter(pathName => pathName === location.pathname ? true : false)
+  const isHideLocation = location.pathname.includes(hideLocationName)
 
 
 
