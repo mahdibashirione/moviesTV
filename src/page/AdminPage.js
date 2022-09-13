@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
 import http from "../services/httpServices";
+import { Menu, Transition } from '@headlessui/react'
+import { Fragment, useEffect, useRef, useState } from 'react'
+import { FiChevronDown } from "react-icons/fi";
 
 const AdminPage = () => {
 
@@ -26,32 +28,147 @@ const AdminPage = () => {
     )
   }
 
+  function EditInactiveIcon(props) {
+    return (
+      <svg
+        {...props}
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 13V16H7L16 7L13 4L4 13Z"
+          fill="#EDE9FE"
+          stroke="#A78BFA"
+          strokeWidth="2"
+        />
+      </svg>
+    )
+  }
+
+  function EditActiveIcon(props) {
+    return (
+      <svg
+        {...props}
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 13V16H7L16 7L13 4L4 13Z"
+          fill="#8B5CF6"
+          stroke="#C4B5FD"
+          strokeWidth="2"
+        />
+      </svg>
+    )
+  }
+
+  function DetailactiveIcon(props) {
+    return (
+      <svg
+        {...props}
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H12V12H4V4Z"
+          fill="#EDE9FE"
+          stroke="#A78BFA"
+          strokeWidth="2"
+        />
+        <path
+          d="M8 8H16V16H8V8Z"
+          fill="#EDE9FE"
+          stroke="#A78BFA"
+          strokeWidth="2"
+        />
+      </svg>
+    )
+  }
+
+  function DetailActiveIcon(props) {
+    return (
+      <svg
+        {...props}
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H12V12H4V4Z"
+          fill="#8B5CF6"
+          stroke="#C4B5FD"
+          strokeWidth="2"
+        />
+        <path
+          d="M8 8H16V16H8V8Z"
+          fill="#8B5CF6"
+          stroke="#C4B5FD"
+          strokeWidth="2"
+        />
+      </svg>
+    )
+  }
+
+  const links = [
+    { id: 1, href: '/admin', label: 'اطلاعات بیشتر' },
+    { id: 2, href: '/admin', label: 'بروزرسانی' },
+  ]
+
   return (
-    <section className="w-full mt-[65px]">
-      <article className="w-full flex flex-col gap-y-4 items-center">
-        <h2>لیست فیلم ها</h2>
-        <ul className="w-full flex flex-col items-start justify-start ">
-          <li className="odd:bg-zinc-800 w-full select-none text-sm flex items-center justify-start gap-x-4 p-4">
-            <span className="w-14 h-14 flex items-center justify-center">پوستر</span>
-            <span className="w-14 h-14 flex items-center justify-center">نام fa</span>
-            <span className="w-14 h-14 flex items-center justify-center">نام en</span>
-            <span className="w-14 h-14 flex items-center justify-center">ساخت</span>
-            <span className="w-14 h-14 flex items-center justify-center">اسلایدر</span>
-          </li>
+    <section className="w-full">
+      <article className="w-full flex flex-col items-start">
+        <div className="bg-zinc-900 sticky top-0 border-b z-20 min-w-full select-none text-sm flex items-center justify-start md:justify-center gap-x-4 px-4">
+          <span className="w-14 h-14 flex items-center justify-center">پوستر</span>
+          <span className="w-20 h-14 flex items-center justify-center">نام fa</span>
+          <span className="w-20 h-14 flex items-center justify-center">نام en</span>
+          <span className="w-14 h-14 flex items-center justify-center">ساخت</span>
+          <span className="w-20 h-full flex items-center justify-center">دسته بندی</span>
+          <span className="w-14 h-14 flex items-center justify-center">اسلایدر</span>
+          <span className="w-24 h-full flex items-center justify-center">Option</span>
+        </div>
+        <ul className="min-w-full overflow-x-scroll flex flex-col items-start justify-start ">
           {allMovies ? allMovies.map(movie => {
             return (
-              <li key={movie.id} className="odd:bg-zinc-800 w-full select-none text-sm flex items-center justify-start gap-x-4 p-4">
+              <li key={movie.id} className="odd:bg-zinc-800 w-full select-none text-sm flex items-center justify-start md:justify-center gap-x-4 p-4">
                 <div className="w-14 h-14 overflow-hidden rounded-lg"><img src={movie.cover} className="w-full h-full object-cover" alt="" /></div>
-                <span className="w-14 h-full flex items-center justify-center">{movie.faName}</span>
-                <span className="w-14 h-full flex items-center justify-center">{movie.enName}</span>
+                <span className="w-20 h-full flex items-center justify-center">{movie.faName}</span>
+                <span className="w-20 h-full flex items-center justify-center">{movie.enName}</span>
                 <span className="w-14 h-full flex items-center justify-center">{movie.country}</span>
+                <span className="w-20 h-full flex items-center justify-center">{movie.category}</span>
                 <span className="w-14 h-full flex items-center justify-center">{movie.slider === true ? "روشن" : "خاموش"}</span>
+                <Menu as="div" className="relative inline-block text-left">
+                  <div>
+                    <Menu.Button className="text-sm inline-flex items-center w-full justify-center rounded-md bg-black bg-opacity-20 pr-4 pl-2 py-2  font-medium text-white hover:bg-opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                      Option
+                      <FiChevronDown className="text-lg mr-2" />
+                    </Menu.Button>
+                  </div>
+                  <Menu.Items className="absolute right-full top-0 mr-2 origin-top-right divide-y divide-gray-500 rounded-md overflow-hidden bg-zinc-900 flex flex-col shadow-lg focus:outline-none border border-gray-600">
+                    {links.map((link) => (
+                      <Menu.Item key={link.id} as={Fragment}>
+                        {({ active }) => (
+                          <a
+                            href={link.href}
+                            className={`${active ? 'bg-blue-500' : 'text-white'} whitespace-nowrap p-4`}
+                          >
+                            {link.label}
+                          </a>
+                        )}
+                      </Menu.Item>
+                    ))}
+
+                  </Menu.Items>
+
+                </Menu>
               </li>
             )
           }) : <LoadingListMovies />}
         </ul>
       </article>
-    </section>
+    </section >
   );
 }
 
