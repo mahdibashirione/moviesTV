@@ -2,21 +2,25 @@ import { useEffect, useRef, useState } from "react";
 import { FiHeart, FiYoutube, FiDownload, FiPlus, FiX, FiUser, FiThumbsDown, FiThumbsUp, FiMessageCircle } from "react-icons/fi"
 import { useLocation } from 'react-router-dom';
 import Header from "../components/Header";
+import GET_DATA from "../utils/getData";
 
 const SingleMoviePage = () => {
 
+  const [data, setData] = useState(null)
+
   const location = useLocation()
-  const data = location.state;
+  const idMovie = location.state.id;
 
   const boxComment = useRef()
   const [isOpenBoxComment, setIsOpenBoxComment] = useState(true)
+
+  useEffect(() => {
+    GET_DATA(`/movies/${idMovie}`, setData)
+  }, [])
+
   function handleIsOpenBoxComment() {
     setIsOpenBoxComment([...boxComment.current.classList].includes("max-h-0"))
   }
-
-  useEffect(() => {
-    handleIsOpenBoxComment()
-  }, [])
 
   const handleBoxComment = () => {
     const classBoxComment = [...boxComment.current.classList]
@@ -60,9 +64,18 @@ const SingleMoviePage = () => {
     )
   }
 
+  const LoadingDataMovie = () => {
+    return (
+      <div className="w-[200px] h-[170px] bg-white rounded-lg flex flex-col items-center justify-center gap-y-3 fixed top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">
+        <span className="block rounded-full h-10 w-10 border-4 border-gray-400 border-l-transparent animate-spin"></span>
+        <span className="text-gray-600">loading ...</span>
+      </div>
+    )
+  }
+
   return (
     <>
-      <section className="w-full max-w-[1600px] mx-auto">
+      {data ? <section className="w-full max-w-[1600px] mx-auto">
         <article className="w-full h-[525px] md:h-[480px] relative">
           <div className="w-full h-full bg-gradient-to-t from-[#1C1C22]">
             <img src={data.cover} alt={data.faName} className="w-full h-full object-cover" />
@@ -112,22 +125,22 @@ const SingleMoviePage = () => {
             </video>
           </div>}
           <div className="w-full">
-            <span className="flex items-center gap-x-2 text-xl mt-6 md:mt-0"><FiYoutube className="text-xl" />داستان فیلم</span>
+            <span className="flex items-center gap-x-2 text-xl mt-6 md:mt-0"><FiYoutube className="text-xl" />داستان {data.type}</span>
             <p className="text-sm text-justify mt-4 text-gray-400 leading-6">{data.story}</p>
-            <span className="flex items-center gap-x-2 text-xl mt-6"><FiYoutube className="text-xl" />درباره فیلم</span>
+            <span className="flex items-center gap-x-2 text-xl mt-6"><FiYoutube className="text-xl" />درباره {data.type}</span>
             <p className="text-sm text-justify mt-4 text-gray-400 leading-6">{data.aboutTheMovie}</p>
           </div>
         </article>
         <article className="px-4 md:container flex flex-col items-center gap-y-3 py-4">
           <h2 className="text-xl mb-4 select-none">باکس دانلود</h2>
-          {data.downloads.map(item => {
+          {data.coming === false ? data.downloads.map(item => {
             return (
               <div className="w-full px-4 py-6 bg-zinc-900 border border-gray-700 rounded-lg flex flex-col md:flex-row items-center gap-4">
                 <span className="whitespace-nowrap select-none">دانلود : {item.title}</span>
                 <div className="flex items-center md:justify-end justify-center flex-wrap  w-full gap-2">
-                  {item.linkDownload.map(link => {
+                  {item.linkDownload.map((link, index) => {
                     return (
-                      <button className="bg-green-500 text-white flex items-center gap-x-1 px-4 py-2 rounded-md">
+                      <button key={index} className="bg-green-500 text-white flex items-center gap-x-1 px-4 py-2 rounded-md">
                         {link.quality}
                         <FiDownload />
                       </button>
@@ -136,9 +149,9 @@ const SingleMoviePage = () => {
                 </div>
               </div>
             )
-          })}
+          }) : <span className="flex items-center rounded-lg text-justify justify-start w-full p-4 text-sm bg-zinc-900 text-green-500">لینک های دانلود بعد از انتشار فیلم در دسترس قرار میگیرد</span>}
         </article>
-        <article className="w-full">
+        <article className="w-full mt-12">
           <div className="md:container p-4">
             <div className="w-full">
               <div className="w-full flex items-center justify-between">
@@ -162,13 +175,13 @@ const SingleMoviePage = () => {
               </div>
               {/* List Comment */}
               <div className="w-full py-4 flex flex-col gap-y-4 border-t border-gray-500 mt-4 ">
-                {data.comments.length > 0 ? data.comments.map(comment => <CardComment comment={comment} />) : <span>دیدگاهی وجود ندارد</span>}
+                {data.comments.length > 0 ? data.comments.map((comment, index) => <CardComment key={index} comment={comment} />) : <span>دیدگاهی وجود ندارد</span>}
               </div>
             </div>
             <div></div>
           </div>
         </article>
-      </section>
+      </section> : <LoadingDataMovie />}
     </>
   );
 }

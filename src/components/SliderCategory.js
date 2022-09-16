@@ -41,7 +41,6 @@ const SliderCategory = ({ dataMovies, title }) => {
               <CardMovie key={item.id} movie={item} />
             )
           }) : <span>Loading...</span>}
-
         </div>
       </div>
     </article>

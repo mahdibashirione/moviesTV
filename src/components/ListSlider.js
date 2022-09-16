@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import GET_DATA_SLIDER from "../utils/getDataSlider";
+import GET_DATA_FILTER from "../utils/getDataFilter";
 import SliderCategory from "./SliderCategory";
 
 const ListSlider = () => {
 
   const [dataSliderSerial, setDataSliderSerial] = useState(null)
+  const [dataSliderAnimation, setDataSliderAnimation] = useState(null)
+  const [dataSliderTranslate, setDataSliderTranslate] = useState(null)
 
   useEffect(() => {
-    GET_DATA_SLIDER("/movies", setDataSliderSerial, "serial-iran")
+    GET_DATA_FILTER("/movies", setDataSliderSerial, "سریال-ایرانی")
+    GET_DATA_FILTER("/movies", setDataSliderAnimation, "انیمیشن")
+    GET_DATA_FILTER("/movies", setDataSliderTranslate, "دوبله-فارسی")
   }, [])
 
 
@@ -67,8 +71,8 @@ const ListSlider = () => {
   return (
     <section className="w-full">
       {dataSliderSerial ? <SliderCategory title="سریال های ایرانی جدید" dataMovies={dataSliderSerial} /> : <CardLoadingSlider />}
-      {dataSliderSerial ? <SliderCategory title="دوبله فارسی جدید" dataMovies={dataSliderSerial} /> : <CardLoadingSlider />}
-      {dataSliderSerial ? <SliderCategory title="انیمیشن" dataMovies={dataSliderSerial} /> : <CardLoadingSlider />}
+      {dataSliderSerial ? <SliderCategory title="دوبله فارسی جدید" dataMovies={dataSliderTranslate} /> : <CardLoadingSlider />}
+      {dataSliderSerial ? <SliderCategory title="انیمیشن" dataMovies={dataSliderAnimation} /> : <CardLoadingSlider />}
     </section>
   );
 }

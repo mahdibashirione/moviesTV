@@ -2,14 +2,24 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ListSlider from "./ListSlider";
 import { FiLoader } from "react-icons/fi"
-import GET_DATA from "../utils/getData";
+import http from "../services/httpServices";
 
 const LayoutSliderAndBanner = () => {
 
   const [dataBanner, setDataBanner] = useState(null)
+
   useEffect(() => {
-    //GET_DATA('/BannerComingMovies', setDataBanner)
+    GET_BANNER("/movies", setDataBanner)
   }, [])
+
+  async function GET_BANNER(url, setState) {
+    try {
+      const { data } = await http.Get(url)
+      setState(data.filter(movie => movie.coming === true).slice(0, 6))
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const CardLoadingBanner = () => {
     return (
@@ -43,9 +53,9 @@ const LayoutSliderAndBanner = () => {
         <div className="w-full sticky top-20 flex flex-col gap-y-4">
           {dataBanner ? dataBanner.map(banner => {
             return (
-              <aside className="w-full h-24 rounded-lg relative overflow-hidden">
-                <Link to="" className="block w-full h-full">
-                  <img src={banner.image} alt="newMovie" className="w-full h-full object-cover" />
+              <aside key={banner.id} className="w-full h-24 rounded-lg relative overflow-hidden">
+                <Link to={`/movie/${banner.id}/${banner.faName}`} state={banner} className="block w-full h-full">
+                  <img src={banner.comingImage} alt="newMovie" className="w-full h-full object-cover" />
                   <div className="w-full h-9 bg-zinc-900/80 bg-blur bottom-0 right-0 absolute text-sm flex items-center justify-between">
                     <div className="flex items-center gap-x-2">
                       <span>{banner.type}</span>
