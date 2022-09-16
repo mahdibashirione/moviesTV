@@ -1,12 +1,13 @@
 import BannerNewMovies from "../components/BannerNewMovies";
-import Header from "../components/Header";
-import ListSlider from "../components/ListSlider";
+import Footer from "../components/Footer";
+import LayoutSliderAndBanner from "../components/LayoutSliderAndBanner";
 
 const HomPage = () => {
   return (
     <>
       <BannerNewMovies />
-      <ListSlider />
+      <LayoutSliderAndBanner />
+      <Footer />
     </>
   );
 }

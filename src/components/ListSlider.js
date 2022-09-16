@@ -13,7 +13,7 @@ const ListSlider = () => {
 
   const CardLoadingSlider = () => {
     return (
-      <article className="md:container p-4 w-full duration-400 animate-pulse">
+      <article className="md:container w-full duration-400 animate-pulse">
         <div className="w-full flex items-center justify-between py-4">
           <span className="bg-gray-600 block rounded-full w-40 h-5"></span>
           <span className="bg-gray-600 block rounded-full w-16 h-3"></span>

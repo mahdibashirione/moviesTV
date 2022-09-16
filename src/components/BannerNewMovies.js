@@ -24,30 +24,14 @@ const BannerNewMovies = () => {
   const CardLoadingBanner = () => {
     return (
       <>
-        <span className="animate-pulse duration-300 w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-400 flex items-center justify-center">
-          <span className="border-4 border-gray-300 border-l-transparent w-10 h-10 rounded-full block animate-spin"></span>
-        </span>
-        <span className="animate-pulse duration-300 w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-400 flex items-center justify-center">
-          <span className="border-4 border-gray-300 border-l-transparent w-10 h-10 rounded-full block animate-spin"></span>
-        </span>
-        <span className="animate-pulse duration-300 w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-400 flex items-center justify-center">
-          <span className="border-4 border-gray-300 border-l-transparent w-10 h-10 rounded-full block animate-spin"></span>
-        </span>
-        <span className="animate-pulse duration-300 w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-400 flex items-center justify-center">
-          <span className="border-4 border-gray-300 border-l-transparent w-10 h-10 rounded-full block animate-spin"></span>
-        </span>
-        <span className="animate-pulse duration-300 w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-400 flex items-center justify-center">
-          <span className="border-4 border-gray-300 border-l-transparent w-10 h-10 rounded-full block animate-spin"></span>
-        </span>
-        <span className="animate-pulse duration-300 w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-400 flex items-center justify-center">
-          <span className="border-4 border-gray-300 border-l-transparent w-10 h-10 rounded-full block animate-spin"></span>
-        </span>
-        <span className="animate-pulse duration-300 w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-400 flex items-center justify-center">
-          <span className="border-4 border-gray-300 border-l-transparent w-10 h-10 rounded-full block animate-spin"></span>
-        </span>
-        <span className="animate-pulse duration-300 w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-400 flex items-center justify-center">
-          <span className="border-4 border-gray-300 border-l-transparent w-10 h-10 rounded-full block animate-spin"></span>
-        </span>
+        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
+        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
+        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
+        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
+        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
+        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
+        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
+        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
       </>
     )
   }

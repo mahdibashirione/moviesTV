@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 
 const SliderCategory = ({ dataMovies, title }) => {
 
-
-
   const CardMovie = ({ movie }) => {
     return (
       <Link to={`/movie/${movie.id}/${movie.faName}`} state={movie} className="group flex flex-col justify-start items-start gap-y-1 mr-2">
@@ -37,8 +35,7 @@ const SliderCategory = ({ dataMovies, title }) => {
           <span className="select-none font-bold lg:text-xl">{title}</span>
           <button className="text-sm text-gray-500 md:hover:scale-110 duration-300">مشاهده همه</button>
         </div>
-        <div className="w-full max-w-full flex items-center justify-start flex-nowrap overflow-scroll pb-8">
-
+        <div className="w-full max-w-full flex items-center justify-start flex-nowrap overflow-scroll pb-8 rounded-lg">
           {dataMovies ? dataMovies.map(item => {
             return (
               <CardMovie key={item.id} movie={item} />
