@@ -9,7 +9,7 @@ const AdminPage = () => {
   const [allMovies, setAllMovies] = useState(null)
 
   useEffect(() => {
-    GET_ALL_MOVIES("/movies", setAllMovies)
+    //GET_ALL_MOVIES("/movies", setAllMovies)
   }, [])
 
   async function GET_ALL_MOVIES(url, setState) {
@@ -23,15 +23,15 @@ const AdminPage = () => {
 
   const LoadingListMovies = () => {
     return (
-      <article className="w-full items-center min-h-[calc(100vh-57px)] p-4 flex flex-col gap-y-5 relative">
+      <article className="w-full items-center p-4 flex flex-col gap-y-5 relative">
         <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
           <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
             <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
           </div>
+          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-14 rounded-full h-4 bg-gray-400"></span>
           <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
         </div>
@@ -39,10 +39,10 @@ const AdminPage = () => {
           <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
             <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
           </div>
+          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-14 rounded-full h-4 bg-gray-400"></span>
           <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
         </div>
@@ -50,10 +50,10 @@ const AdminPage = () => {
           <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
             <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
           </div>
+          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-14 rounded-full h-4 bg-gray-400"></span>
           <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
         </div>
@@ -61,10 +61,10 @@ const AdminPage = () => {
           <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
             <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
           </div>
+          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-14 rounded-full h-4 bg-gray-400"></span>
           <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
         </div>
@@ -72,10 +72,10 @@ const AdminPage = () => {
           <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
             <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
           </div>
+          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-14 rounded-full h-4 bg-gray-400"></span>
           <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
         </div>
@@ -83,14 +83,14 @@ const AdminPage = () => {
           <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
             <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
           </div>
+          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
           <span className="w-14 rounded-full h-4 bg-gray-400"></span>
           <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
         </div>
-        <div className="absolute top-0 right-0 bg-gradient-to-t from-zinc-800 z-30 w-full h-full"></div>
+        <div className="absolute top-0 right-0 bg-gradient-to-t from-[#1c1c22] z-30 w-full h-full"></div>
       </article>
     )
   }
@@ -153,7 +153,7 @@ const AdminPage = () => {
         </ul>
       </article>
       {/* btn Add New Movie */}
-      <Link to={"/admin/add/newmoviedata"} className="group fixed bottom-4 overflow-hidden max-w-[50px] hover:max-w-full right-4 p-3  bg-gradient-to-tr from-blue-500 to-teal-500 rounded-full flex items-center justify-center gap-x-2 duration-500">
+      <Link to={"/admin/add/newmoviedata"} className="group fixed bottom-4 overflow-hidden max-w-[50px] hover:max-w-full right-4 p-3  bg-gradient-to-tr from-blue-500 to-teal-500 rounded-full flex items-center justify-center gap-x-2 duration-500 z-40">
         <span className="-mr-[53px] opacity-0 group-hover:mr-0 group-hover:opacity-100 duration-500 whitespace-nowrap">افزودن</span>
         <FiPlus className="text-2xl" />
       </Link>
