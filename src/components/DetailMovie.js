@@ -36,8 +36,32 @@ const DetailMovie = () => {
             <p>{dataMovie.enName}</p>
           </div>
           <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
+            <span className="text-sm text-gray-500">دسته بندی :</span>
+            <p>{dataMovie.category}</p>
+          </div>
+          <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
+            <span className="text-sm text-gray-500">سال ساخت :</span>
+            <p>{dataMovie.productionYear}</p>
+          </div>
+          <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
+            <span className="text-sm text-gray-500">زمان فیلم :</span>
+            <p>{dataMovie.time}</p>
+          </div>
+          <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
+            <span className="text-sm text-gray-500">سن مجاز برای تماشا :</span>
+            <p>{dataMovie.permissibleAge}سال به بالا</p>
+          </div>
+          <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
+            <span className="text-sm text-gray-500"> سبک فیلم :</span>
+            <p>{dataMovie.genre}</p>
+          </div>
+          <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
+            <span className="text-sm text-gray-500">  IMDB امتیاز فیلم :</span>
+            <p>{dataMovie.imdb}</p>
+          </div>
+          <div className="w-full flex items-start gap-x-2 border-b border-gray-600 py-4">
             <span className="text-sm text-gray-500">کاور :</span>
-            <p>{dataMovie.cover}</p>
+            <img src={dataMovie.cover} className="w-40" />
           </div>
           <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
             <span className="text-sm text-gray-500 text-justify">داستان فیلم :</span>
@@ -53,11 +77,19 @@ const DetailMovie = () => {
           </div>
           <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
             <span className="text-sm text-gray-500">کارگردان :</span>
-            <p>{dataMovie.director}</p>
+            <p>{dataMovie.director ? dataMovie.director : "نامشخص"}</p>
           </div>
           <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
             <span className="text-sm text-gray-500">تیزر :</span>
-            <p>{dataMovie.demo}</p>
+            {dataMovie.demo ?
+              <video width="540" height="315" className="mt-4" controls poster={dataMovie.poster}>
+                <source src={dataMovie.demo} type="video/mp4" />
+              </video>
+              : <span>نامشخص</span>}
+          </div>
+          <div className="w-full flex flex-col items-start gap-y-1 border-b border-gray-600 py-4">
+            <span className="text-sm text-gray-500">تاریخ انتشار :</span>
+            <p>{dataMovie.coming ? dataMovie.date : "منتشر شده"}</p>
           </div>
         </> : <Loading />}
     </section>

@@ -9,7 +9,7 @@ const Input = ({ formik, label, name, type = "text", children, value }) => {
           name={name}
           {...formik.getFieldProps(name)}
           id={label}
-          className={`${!formik.errors[name] && formik.touched[name] && "text-white"} w-full outline-none bg-transparent px-2 py-3 rounded-full`}
+          className={`${!formik.errors[name] && formik.touched[name] && "text-white"} focus:border-blue-500 w-full outline-none bg-transparent px-2 py-3 rounded-full`}
           placeholder="...."
           value={value}
         />
