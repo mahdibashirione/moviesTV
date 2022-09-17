@@ -102,26 +102,26 @@ const AdminPage = () => {
 
   return (
     <section className="w-full">
-      <article className="w-full flex flex-col items-start">
-        <div className="bg-zinc-900 sticky top-0 border-b z-20 min-w-full select-none text-sm flex items-center justify-start md:justify-center gap-x-4 px-4">
+      <article className="flex flex-col mx-auto">
+        <div className="bg-zinc-900 sticky top-0 border-b z-20 max-w-full select-none text-sm flex items-center justify-center gap-x-4 px-4">
           <span className="w-14 h-14 flex items-center justify-center">پوستر</span>
           <span className="w-20 h-14 flex items-center justify-center">نام fa</span>
-          <span className="w-20 h-14 flex items-center justify-center">نام en</span>
-          <span className="w-14 h-14 flex items-center justify-center">ساخت</span>
+          <span className="w-20 h-14 md:flex items-center justify-center hidden">نام en</span>
+          <span className="w-14 h-14 md:flex items-center justify-center hidden">ساخت</span>
           <span className="w-20 h-full flex items-center justify-center">دسته بندی</span>
-          <span className="w-14 h-14 flex items-center justify-center">اسلایدر</span>
+          <span className="w-14 h-14 md:flex items-center justify-center hidden">اسلایدر</span>
           <span className="w-24 h-full flex items-center justify-center">Option</span>
         </div>
-        <ul className="min-w-full overflow-x-scroll flex flex-col items-start justify-start ">
+        <ul className="max-w-full whitespace-nowrap overflow-hidden flex flex-col items-start justify-start ">
           {allMovies ? allMovies.map(movie => {
             return (
-              <li key={movie.id} className="odd:bg-zinc-800 w-full select-none text-sm flex items-center justify-start md:justify-center gap-x-4 p-4">
+              <li key={movie.id} className="odd:bg-zinc-800 w-full select-none text-sm flex items-center justify-center md:justify-start md:justify-center gap-x-4 p-4">
                 <div className="w-14 h-14 overflow-hidden rounded-lg"><img src={movie.cover} className="w-full h-full object-cover" alt="" /></div>
                 <span className="w-20 h-full flex items-center justify-center">{movie.faName}</span>
-                <span className="w-20 h-full flex items-center justify-center">{movie.enName}</span>
-                <span className="w-14 h-full flex items-center justify-center">{movie.country}</span>
+                <span className="w-20 h-full md:flex items-center justify-center hidden">{movie.enName}</span>
+                <span className="w-14 h-full md:flex items-center justify-center hidden">{movie.country}</span>
                 <span className="w-20 h-full flex items-center justify-center">{movie.category}</span>
-                <span className="w-14 h-full flex items-center justify-center">{movie.slider === true ? "روشن" : "خاموش"}</span>
+                <span className="w-14 h-full md:flex items-center justify-center hidden">{movie.slider === true ? "روشن" : "خاموش"}</span>
                 <Menu as="div" className="relative inline-block text-left">
                   <div>
                     <Menu.Button className="text-sm inline-flex items-center w-full justify-center rounded-md bg-black bg-opacity-20 pr-4 pl-2 py-2  font-medium text-white hover:bg-opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
@@ -152,6 +152,7 @@ const AdminPage = () => {
           }) : <LoadingListMovies />}
         </ul>
       </article>
+      {/* btn Add New Movie */}
       <Link to={"/admin/add/newmoviedata"} className="group fixed bottom-4 overflow-hidden max-w-[50px] hover:max-w-full right-4 p-3  bg-gradient-to-tr from-blue-500 to-teal-500 rounded-full flex items-center justify-center gap-x-2 duration-500">
         <span className="-mr-[53px] opacity-0 group-hover:mr-0 group-hover:opacity-100 duration-500 whitespace-nowrap">افزودن</span>
         <FiPlus className="text-2xl" />
