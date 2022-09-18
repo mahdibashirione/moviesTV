@@ -119,7 +119,7 @@ const SingleMoviePage = () => {
           </div>
         </article>
         <article className="md:container pb-8 w-full flex flex-col md:flex-row items-center px-4 border-b border-gray-500 mb-6">
-          {data.demo && <div className="w-full">
+          {data.demo.length && <div className="w-full">
             <video width="540" height="315" controls poster={data.poster}>
               <source src={data.demo} type="video/mp4" />
             </video>
