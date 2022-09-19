@@ -1,4 +1,4 @@
-const Input = ({ formik, label, name, type = "text", children, value }) => {
+const Input = ({ formik, label, name, type = "text", children, value, placeholder }) => {
   return (
     <div className="flex flex-col items-start gap-y-2 w-full max-w-[400px] min-w-[150px]">
       <label htmlFor={label} className="text-gray-400">{label} :</label>
@@ -10,7 +10,7 @@ const Input = ({ formik, label, name, type = "text", children, value }) => {
           {...formik.getFieldProps(name)}
           id={label}
           className={`${!formik.errors[name] && formik.touched[name] && "text-white"} focus:border-blue-500 w-full outline-none bg-transparent px-2 py-3 rounded-full`}
-          placeholder="...."
+          placeholder={placeholder}
           value={value}
         />
       </div>
