@@ -86,7 +86,12 @@ const SingleMoviePage = () => {
                 <img src={data.cover} alt={data.faName} className="w-full h-full object-cover" />
               </div>
               <div className="w-full flex flex-col items-center md:items-start select-none p-4">
-                <h2 className="text-xl">{data.faName}</h2>
+                <div className="flex md:text-xl text-lg items-center justify-center gap-2">
+                  <span>{data.type}</span>
+                  <h2>{data.faName}</h2>
+                  <span>{data.productionYear}</span>
+                  <h>{data.enName}</h>
+                </div>
                 <div className="w-full flex items-center justify-center md:justify-start py-4 gap-x-2 text-gray-400 text-sm border-b border-gray-600 md:border-gray-400">
                   <span>{data.genre}</span>
                   <span className="w-[1px] h-full bg-gray-600"></span>
@@ -105,7 +110,7 @@ const SingleMoviePage = () => {
                     <div className="hidden md:flex flex-col gap-y-2 py-2">
                       <div className="flex items-center gap-x-1 text-sm">
                         <span className="text-gray-400">بازیگران :</span>
-                        <span>{data.actors.map(actor => actor + ",")}</span>
+                        <span>{data.actors}</span>
                       </div>
                       <div className="flex items-center gap-x-1 text-sm">
                         <span className="text-gray-400">کارگردان :</span>
@@ -133,7 +138,7 @@ const SingleMoviePage = () => {
         </article>
         <article className="px-4 md:container flex flex-col items-center gap-y-3 py-4">
           <h2 className="text-xl mb-4 select-none">باکس دانلود</h2>
-          {data.coming === false ? data.downloads.map(item => {
+          {data.coming === false ? (data.downloads.length ? data.downloads.map(item => {
             return (
               <div className="w-full px-4 py-6 bg-zinc-900 border border-gray-700 rounded-lg flex flex-col md:flex-row items-center gap-4">
                 <span className="whitespace-nowrap select-none">دانلود : {item.title}</span>
@@ -149,7 +154,7 @@ const SingleMoviePage = () => {
                 </div>
               </div>
             )
-          }) : <span className="flex items-center rounded-lg text-justify justify-start w-full p-4 text-sm bg-zinc-900 text-green-500">لینک های دانلود بعد از انتشار فیلم در دسترس قرار میگیرد</span>}
+          }) : <span className="flex items-center rounded-lg text-justify justify-start w-full p-4 text-sm bg-zinc-900 text-red-500">لینک دانلود وجود ندارد </span>) : <span className="flex items-center rounded-lg text-justify justify-start w-full p-4 text-sm bg-zinc-900 text-green-500">لینک های دانلود بعد از انتشار فیلم در دسترس قرار میگیرد</span>}
         </article>
         <article className="w-full mt-12">
           <div className="md:container p-4">

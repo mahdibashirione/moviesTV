@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: IranSans;
+  src: url(../public/font/IRANSansWeb.ttf);
+}
+
 @layer components {
+  html {
+    font-family: "IranSans";
+  }
+
   .bg-blur {
     backdrop-filter: blur(13px);
     -webkit-backdrop-filter: blur(20px);

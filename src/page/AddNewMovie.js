@@ -43,6 +43,8 @@ const AddNewMovie = () => {
       productionYear: "",
       permissibleAge: "",
       genre: "",
+      story: "",
+      aboutTheMovie: "",
       slider: true,
       coming: false,
     },
@@ -52,7 +54,6 @@ const AddNewMovie = () => {
       cover: Yup.string().required("باید تکمیل شود"),
       country: Yup.string().required("باید تکمیل شود"),
       time: Yup.string().required("باید تکمیل شود"),
-      type: Yup.string().required("باید تکمیل شود"),
       actors: Yup.string().required("باید تکمیل شود"),
       imdb: Yup.string().required("باید تکمیل شود"),
       satisfaction: Yup.string().required("باید تکمیل شود"),
@@ -60,28 +61,32 @@ const AddNewMovie = () => {
       productionYear: Yup.string().required("باید تکمیل شود"),
       permissibleAge: Yup.string().required("باید تکمیل شود"),
       genre: Yup.string().required("باید تکمیل شود"),
+      story: Yup.string().required("باید تکمیل شود"),
+      aboutTheMovie: Yup.string().required("باید تکمیل شود"),
     }),
-    onSubmit: dataNewMovie => {
-      http.Post("/", dataNewMovie)
-        .then(res => {
-          console.log(res.data)
-          navigate.push("/admin")
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    }
+    onSubmit: values => Post_Data("/movies", values)
   })
+
+  async function Post_Data(url, data) {
+    try {
+      const res = await http.Post(url, { ...data, downloads: [], comments: [] })
+      console.log(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <section className="w-full md:container p-4">
-      <form className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center" onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center" >
         <Input formik={formik} label="نام فارسی" name="faName" placeholder="آواتار" />
         <Input formik={formik} label="نام لاتین" name="enName" placeholder="Avatar" />
         <Input formik={formik} label="آدرس کاور" name="cover" placeholder="https//:gogle/dd25cs.com" />
         <SelectBox formik={formik} name="type" options={options.type} title={"نوع فیلم"} />
         <SelectBox formik={formik} name="category" options={options.category} title={"دسته بندی"} />
         <Input formik={formik} label="ساخت کشور" name="country" placeholder="آمریکا" />
+        <Input formik={formik} label="داستان فیلم" name="story" placeholder="..." />
+        <Input formik={formik} label="درباره فیلم" name="aboutTheMovie" placeholder="..." />
         <Input formik={formik} label="سن مجاز تماشا" name="permissibleAge" placeholder="18" />
         <Input formik={formik} label="ژانر" name="genre" placeholder="ترسناک,اکشن" />
         <Input formik={formik} label="امتیاز IMDB" name="imdb" placeholder="8.6" />

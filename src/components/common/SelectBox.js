@@ -7,7 +7,7 @@ const SelectBox = ({ formik, name, title, options }) => {
   const [selected, setSelected] = useState({ id: 0, name: "نامشخص" })
 
   useEffect(() => {
-    formik.values[name] = selected
+    formik.values[name] = selected.name
   }, [selected])
 
 
