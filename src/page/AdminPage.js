@@ -186,8 +186,7 @@ const AdminPage = () => {
         </ul>
       </article>
       {/* btn Add New Movie */}
-      <Link to={"/admin/add/newmoviedata"} className="group fixed bottom-4 overflow-hidden max-w-[50px] hover:max-w-full right-4 p-3  bg-gradient-to-tr from-blue-500 to-teal-500 rounded-full flex items-center justify-center gap-x-2 duration-500 z-40">
-        <span className="-mr-[53px] opacity-0 group-hover:mr-0 group-hover:opacity-100 duration-500 whitespace-nowrap">افزودن</span>
+      <Link to={"/admin/add/newmoviedata"} className="fixed bottom-4 right-4 w-14 h-14 hover:scale-90 duration-300 bg-gradient-to-tr from-blue-500 to-teal-500 rounded-full flex items-center justify-center  z-40">
         <FiPlus className="text-2xl" />
       </Link>
     </section >

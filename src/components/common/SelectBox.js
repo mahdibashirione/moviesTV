@@ -37,17 +37,12 @@ const SelectBox = ({ formik, name, title, options }) => {
                 <Listbox.Option
                   key={personIdx}
                   className={({ active }) =>
-                    `relative select-none py-2 pl-10 pr-4 cursor-pointer ${active ? 'bg-blue-500 text-white' : 'text-gray-900'
-                    }`
-                  }
+                    `relative select-none py-2 pl-10 pr-4 cursor-pointer ${active ? 'bg-blue-500 text-white' : 'text-gray-900'}`}
                   value={person}
                 >
                   {({ selected }) => (
                     <>
-                      <span
-                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
-                          }`}
-                      >
+                      <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`} >
                         {person.name}
                       </span>
                       {selected ? (
