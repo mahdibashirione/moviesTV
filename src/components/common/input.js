@@ -1,20 +1,19 @@
-const Input = ({ formik, label, name, type = "text", children, value, placeholder }) => {
+import { TextField } from "@mui/material";
+
+const Input = ({ formik, label, name, placeholder }) => {
   return (
-    <div className="flex flex-col items-start gap-y-2 w-full max-w-[400px] min-w-[150px]">
-      <label htmlFor={label} className="text-gray-400">{label} :</label>
-      <div className={`${!formik.errors[name] && formik.touched[name] ? "border-green-500" : "border-gray-500"} w-full px-2 py-1 flex items-center justify-start rounded-lg bg-transparent border ${formik.errors[name] && formik.touched[name] && "border-red-500"}`}>
-        {children}
-        <input
-          type={type}
-          name={name}
-          {...formik.getFieldProps(name)}
-          id={label}
-          className={`${!formik.errors[name] && formik.touched[name] && "text-white"} focus:border-blue-500 w-full outline-none bg-transparent px-2 py-3 rounded-full`}
-          placeholder={placeholder}
-          value={value}
-        />
-      </div>
-      {formik.errors[name] && formik.touched[name] && <span className="text-red-500 w-full text-right block">{formik.errors[name]}</span>}
+    <div className="rounded flex flex-col items-start gap-y-2 w-full max-w-[400px] min-w-[150px]">
+      <TextField
+        fullWidth
+        label={label}
+        name={name}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values[name]}
+        placeholder={placeholder}
+        helperText={formik.touched[name] && formik.errors[name]}
+        error={formik.touched[name] && formik.errors[name] ? true : false}
+      />
     </div>
   );
 }

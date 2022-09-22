@@ -3,13 +3,15 @@ import { Menu, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { FiChevronDown, FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button"
+import Backdrop from "@mui/material/Backdrop";
 
 const AdminPage = () => {
 
   const [allMovies, setAllMovies] = useState(null)
 
   useEffect(() => {
-    GET_ALL_MOVIES("/movies", setAllMovies)
+    //GET_ALL_MOVIES("/movies", setAllMovies)
   }, [])
 
   async function GET_ALL_MOVIES(url, setState) {
@@ -90,6 +92,28 @@ const AdminPage = () => {
           <span className="w-14 rounded-full h-4 bg-gray-400"></span>
           <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
         </div>
+        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
+          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
+            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
+          </div>
+          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
+          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
+        </div>
+        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
+          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
+            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
+          </div>
+          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
+          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
+          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
+          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
+        </div>
         <div className="absolute top-0 right-0 bg-gradient-to-t from-[#1c1c22] z-30 w-full h-full"></div>
       </article>
     )
@@ -99,6 +123,12 @@ const AdminPage = () => {
     { id: 1, href: '/admin/detailMovie', label: 'اطلاعات بیشتر' },
     { id: 2, href: '/admin', label: 'بروزرسانی' },
   ]
+
+  const handleDeleteMovie = (id) => {
+    http.Delete(`/movies/${id}`)
+      .then(res => GET_ALL_MOVIES("/movies", setAllMovies))
+      .catch(error => console.log(error))
+  }
 
   return (
     <section className="w-full">
@@ -143,9 +173,12 @@ const AdminPage = () => {
                         )}
                       </Menu.Item>
                     ))}
-
+                    <Menu.Item as={Fragment}>
+                      <div className="w-full border-t p-1 ">
+                        <Button fullWidth color={"error"} onClick={e => handleDeleteMovie(movie.id)}>حذف</Button>
+                      </div>
+                    </Menu.Item>
                   </Menu.Items>
-
                 </Menu>
               </li>
             )

@@ -1,10 +1,12 @@
 import { useFormik } from "formik";
 import Input from "../components/common/input";
+import CustomSwitch from "../components/common/Switch";
 import * as Yup from "yup"
 import { useState } from "react";
 import SelectBox from "../components/common/SelectBox";
 import { useNavigate } from "react-router-dom";
 import http from "../services/httpServices";
+import { TextField } from "@mui/material";
 
 const AddNewMovie = () => {
 
@@ -45,7 +47,7 @@ const AddNewMovie = () => {
       genre: "",
       story: "",
       aboutTheMovie: "",
-      slider: true,
+      slider: false,
       coming: false,
     },
     validationSchema: Yup.object().shape({
@@ -64,26 +66,27 @@ const AddNewMovie = () => {
       story: Yup.string().required("باید تکمیل شود"),
       aboutTheMovie: Yup.string().required("باید تکمیل شود"),
     }),
-    onSubmit: values => Post_Data("/movies", values)
+    onSubmit: values => Post_Data("/movies", values),
+    validateOnMount: true,
   })
 
   async function Post_Data(url, data) {
     try {
       const res = await http.Post(url, { ...data, downloads: [], comments: [] })
-      console.log(res.data)
+      navigate.push("/admin")
     } catch (error) {
-      console.log(error)
+      window.alert(error)
     }
   }
 
   return (
-    <section className="w-full md:container p-4">
-      <form onSubmit={formik.handleSubmit} className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center" >
+    <section className="min-w-screen w-full min-h-screen bg-white p-4">
+      <form dir="ltr" onSubmit={formik.handleSubmit} className="w-full md:container grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center" >
+        <SelectBox formik={formik} name="type" options={options.type} title={"نوع فیلم"} />
+        <SelectBox formik={formik} name="category" options={options.category} title={"دسته بندی"} />
         <Input formik={formik} label="نام فارسی" name="faName" placeholder="آواتار" />
         <Input formik={formik} label="نام لاتین" name="enName" placeholder="Avatar" />
         <Input formik={formik} label="آدرس کاور" name="cover" placeholder="https//:gogle/dd25cs.com" />
-        <SelectBox formik={formik} name="type" options={options.type} title={"نوع فیلم"} />
-        <SelectBox formik={formik} name="category" options={options.category} title={"دسته بندی"} />
         <Input formik={formik} label="ساخت کشور" name="country" placeholder="آمریکا" />
         <Input formik={formik} label="داستان فیلم" name="story" placeholder="..." />
         <Input formik={formik} label="درباره فیلم" name="aboutTheMovie" placeholder="..." />
@@ -97,7 +100,8 @@ const AddNewMovie = () => {
         <Input formik={formik} label="زمان فیلم" name="time" placeholder="60 دقیقه" />
         <Input formik={formik} label="بازیگران" name="actors" placeholder="علیرضا , محمد , صبا" />
         <Input formik={formik} label="کارگردان" name="director" placeholder="فخیم زاده" />
-        <button type={"submit"} className="w-full max-w-[400px] bg-blue-500 p-4 rounded-lg mt-2 outline-none hover:scale-95 duration-300">افزودن</button>
+        <CustomSwitch name="slider" formik={formik} label="افزودن به اسلایدر صفحه اصلی" />
+        <button disabled={!formik.isValid} type={"submit"} className="disabled:opacity-50 w-full max-w-[400px] bg-blue-500 p-4 rounded-lg mt-2 outline-none hover:scale-95 duration-300">افزودن</button>
       </form>
     </section >
   );

@@ -14,9 +14,9 @@ const SelectBox = ({ formik, name, title, options }) => {
 
   return (
     <Listbox value={selected} onChange={setSelected}>
-      <div className="flex flex-col gap-y-2">
-        <span className="text-gray-400">{title}:</span>
-        <div className={`relative w-[150px] border ${selected.id > 0 ? "border-green-500" : "border-gray-500"} rounded-lg`}>
+      <div className="flex items-center gap-x-2 text-slate-800">
+        <span className="text-sm text-gray-500">{title}:</span>
+        <div className={`relative w-[150px] border ${selected.id > 0 ? "border-green-500" : "border-gray-300"} rounded`}>
           <Listbox.Button className="relative w-full cursor-pointer rounded-lg bg-transparent py-4 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate">{selected.id > 0 ? selected.name : "انتخاب"}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
