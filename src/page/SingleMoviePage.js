@@ -1,3 +1,4 @@
+import { Backdrop, CircularProgress } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { FiHeart, FiYoutube, FiDownload, FiPlus, FiX, FiUser, FiThumbsDown, FiThumbsUp, FiMessageCircle } from "react-icons/fi"
 import { useLocation } from 'react-router-dom';
@@ -66,10 +67,12 @@ const SingleMoviePage = () => {
 
   const LoadingDataMovie = () => {
     return (
-      <div className="w-[200px] h-[170px] bg-white rounded-lg flex flex-col items-center justify-center gap-y-3 fixed top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">
-        <span className="block rounded-full h-10 w-10 border-4 border-gray-400 border-l-transparent animate-spin"></span>
-        <span className="text-gray-600">loading ...</span>
-      </div>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={true}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     )
   }
 

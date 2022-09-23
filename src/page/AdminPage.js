@@ -11,7 +11,7 @@ const AdminPage = () => {
   const [allMovies, setAllMovies] = useState(null)
 
   useEffect(() => {
-    //GET_ALL_MOVIES("/movies", setAllMovies)
+    GET_ALL_MOVIES("/movies", setAllMovies)
   }, [])
 
   async function GET_ALL_MOVIES(url, setState) {

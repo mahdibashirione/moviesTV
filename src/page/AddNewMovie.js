@@ -6,7 +6,7 @@ import { useState } from "react";
 import SelectBox from "../components/common/SelectBox";
 import { useNavigate } from "react-router-dom";
 import http from "../services/httpServices";
-import { TextField } from "@mui/material";
+import { Button } from "@mui/material";
 
 const AddNewMovie = () => {
 
@@ -58,13 +58,15 @@ const AddNewMovie = () => {
       time: Yup.string().required("باید تکمیل شود"),
       actors: Yup.string().required("باید تکمیل شود"),
       imdb: Yup.string().required("باید تکمیل شود"),
-      satisfaction: Yup.string().required("باید تکمیل شود"),
       director: Yup.string().required("باید تکمیل شود"),
-      productionYear: Yup.string().required("باید تکمیل شود"),
-      permissibleAge: Yup.string().required("باید تکمیل شود"),
+      productionYear: Yup.string().required("باید تکمیل شود").max(4, "حداکثر 4 رقم باشد"),
+      satisfaction: Yup.string().required("باید تکمیل شود").max(2, "حداکثر 2 رقم باشد"),
+      permissibleAge: Yup.string().required("باید تکمیل شود").max(2, "حداکثر 2 رقم باشد"),
       genre: Yup.string().required("باید تکمیل شود"),
       story: Yup.string().required("باید تکمیل شود"),
       aboutTheMovie: Yup.string().required("باید تکمیل شود"),
+      type: Yup.string().required("باید تکمیل شود"),
+      category: Yup.string().required("باید تکمیل شود"),
     }),
     onSubmit: values => Post_Data("/movies", values),
     validateOnMount: true,
@@ -101,7 +103,13 @@ const AddNewMovie = () => {
         <Input formik={formik} label="بازیگران" name="actors" placeholder="علیرضا , محمد , صبا" />
         <Input formik={formik} label="کارگردان" name="director" placeholder="فخیم زاده" />
         <CustomSwitch name="slider" formik={formik} label="افزودن به اسلایدر صفحه اصلی" />
-        <button disabled={!formik.isValid} type={"submit"} className="disabled:opacity-50 w-full max-w-[400px] bg-blue-500 p-4 rounded-lg mt-2 outline-none hover:scale-95 duration-300">افزودن</button>
+        <Button
+          variant="contained"
+          size="large"
+          disabled={!formik.isValid}
+          type={"submit"}>
+          افزودن
+        </Button>
       </form>
     </section >
   );
