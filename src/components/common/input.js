@@ -5,6 +5,7 @@ const Input = ({ formik, label, name, placeholder }) => {
     <div className="rounded flex flex-col items-start gap-y-2 w-full max-w-[400px] min-w-[150px]">
       <TextField
         fullWidth
+        inputProps={{ style: { fontFamily: "iranSans" } }}
         label={label}
         name={name}
         onChange={formik.handleChange}

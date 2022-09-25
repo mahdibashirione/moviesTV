@@ -10,7 +10,7 @@ const SliderCategory = ({ dataMovies, title }) => {
 
   const CardMovie = ({ movie }) => {
     return (
-      <Link to={`/movie/${movie.id}/${movie.faName}`} state={movie} className="group flex flex-col justify-start items-start gap-y-1 mr-2">
+      <Link to={`/movie/${movie.id}/${movie.faName}`} state={movie} className="group flex flex-col justify-start items-start gap-y-1 mr-3 w-[140px] md:w-[195px]">
         <div className="w-[140px] md:w-[195px] h-[200px] md:h-[270px] overflow-hidden rounded-lg relative">
           <img src={movie.cover} alt="cover-movie" className="w-full h-full object-cover" />
           <div className="w-full h-full absolute top-0 right-0 bg-gradient-to-t from-zinc-900 bg-opacity-0 opacity-0 group-hover:opacity-100 duration-300 flex flex-col justify-end items-start gap-y-1 px-2 py-4">
@@ -22,8 +22,8 @@ const SliderCategory = ({ dataMovies, title }) => {
           </div>
           <span className="absolute bottom-2 left-2 text-[11px] bg-yellow-500 p-1 rounded-md group-hover:opacity-0 duration-300 ">{movie.broadcastDays}</span>
         </div>
-        <span className="text-base">سریال {movie.faName}</span>
-        {movie.broadcastDays && <span className="text-gray-600 text-sm">{movie.episode ? ("قسمت" + movie.episode) : movie.enName}</span>}
+        <span className="line-clamp-1 text-base">{movie.type} {movie.faName}</span>
+        <span className="line-clamp-1 text-gray-600 text-sm flex items-center gap-x-1">{movie.enName} {movie.productionYear}</span>
       </Link>
     )
   }

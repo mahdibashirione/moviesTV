@@ -48,6 +48,7 @@ const AddNewMovie = () => {
       story: "",
       aboutTheMovie: "",
       slider: false,
+      bannerNewMovie: false,
       coming: false,
     },
     validationSchema: Yup.object().shape({
@@ -103,7 +104,10 @@ const AddNewMovie = () => {
         <Input formik={formik} label="بازیگران" name="actors" placeholder="علیرضا , محمد , صبا" />
         <Input formik={formik} label="کارگردان" name="director" placeholder="فخیم زاده" />
         <CustomSwitch name="slider" formik={formik} label="افزودن به اسلایدر صفحه اصلی" />
+        <CustomSwitch name="coming" formik={formik} label="افزودن به بزودی ها" />
+        <CustomSwitch name="bannerNewMovie" formik={formik} label="افزودن به بنر اول صفحه" />
         <Button
+          style={{ fontFamily: "iranSans", }}
           variant="contained"
           size="large"
           disabled={!formik.isValid}

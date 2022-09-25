@@ -11,7 +11,7 @@ const AdminPage = () => {
   const [allMovies, setAllMovies] = useState(null)
 
   useEffect(() => {
-    GET_ALL_MOVIES("/movies", setAllMovies)
+    //GET_ALL_MOVIES("/movies", setAllMovies)
   }, [])
 
   async function GET_ALL_MOVIES(url, setState) {
@@ -114,7 +114,7 @@ const AdminPage = () => {
           <span className="w-14 rounded-full h-4 bg-gray-400"></span>
           <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
         </div>
-        <div className="absolute top-0 right-0 bg-gradient-to-t from-[#1c1c22] z-30 w-full h-full"></div>
+        <div className="absolute top-0 right-0 bg-gradient-to-t from-white z-30 w-full h-full"></div>
       </article>
     )
   }
@@ -131,9 +131,9 @@ const AdminPage = () => {
   }
 
   return (
-    <section className="w-full">
+    <section className="w-screen min-h-screen bg-white text-slate-800">
       <article className="flex flex-col mx-auto">
-        <div className="bg-zinc-900 sticky top-0 border-b z-20 max-w-full select-none text-sm flex items-center justify-center gap-x-4 px-4">
+        <div className="bg-white border-b border-gray-400 sticky top-0 z-20 max-w-full select-none text-sm flex items-center justify-center gap-x-4 px-4">
           <span className="w-14 h-14 flex items-center justify-center">پوستر</span>
           <span className="w-20 h-14 flex items-center justify-center">نام fa</span>
           <span className="w-20 h-14 md:flex items-center justify-center hidden">نام en</span>
@@ -145,7 +145,7 @@ const AdminPage = () => {
         <ul className="max-w-full whitespace-nowrap overflow-hidden flex flex-col items-start justify-start ">
           {allMovies ? allMovies.map(movie => {
             return (
-              <li key={movie.id} className="odd:bg-zinc-800 w-full select-none text-sm flex items-center justify-center md:justify-start md:justify-center gap-x-4 p-4">
+              <li key={movie.id} className="odd:bg-gray-200 w-full select-none text-sm flex items-center justify-center md:justify-start md:justify-center gap-x-4 p-4">
                 <div className="w-14 h-14 overflow-hidden rounded-lg"><img src={movie.cover} className="w-full h-full object-cover" alt="" /></div>
                 <span className="w-20 h-full flex items-center justify-center">{movie.faName}</span>
                 <span className="w-20 h-full md:flex items-center justify-center hidden">{movie.enName}</span>
@@ -187,7 +187,7 @@ const AdminPage = () => {
       </article>
       {/* btn Add New Movie */}
       <Link to={"/admin/add/newmoviedata"} className="fixed bottom-4 right-4 w-14 h-14 hover:scale-90 duration-300 bg-gradient-to-tr from-blue-500 to-teal-500 rounded-full flex items-center justify-center  z-40">
-        <FiPlus className="text-2xl" />
+        <FiPlus className="text-2xl text-white" />
       </Link>
     </section >
   );
