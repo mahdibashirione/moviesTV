@@ -76,7 +76,7 @@ const AddNewMovie = () => {
   async function Post_Data(url, data) {
     try {
       const res = await http.Post(url, { ...data, downloads: [], comments: [] })
-      navigate.push("/admin")
+      navigate("/admin")
     } catch (error) {
       window.alert(error)
     }

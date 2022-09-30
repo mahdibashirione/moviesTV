@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ListSlider from "./ListSlider";
 import { FiLoader } from "react-icons/fi"
-import http from "../services/httpServices";
+import GET_BANNER from "../utils/getBanner";
 
 const LayoutSliderAndBanner = () => {
 
@@ -11,15 +11,6 @@ const LayoutSliderAndBanner = () => {
   useEffect(() => {
     GET_BANNER("/movies", setDataBanner)
   }, [])
-
-  async function GET_BANNER(url, setState) {
-    try {
-      const { data } = await http.Get(url)
-      setState(data.filter(movie => movie.coming === true).slice(0, 6))
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const CardLoadingBanner = () => {
     return (

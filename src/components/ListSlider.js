@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GET_DATA_FILTER from "../utils/getDataFilter";
+import GET_DATA_SLIDER from "../utils/getDataSlider";
 import SliderCategory from "./SliderCategory";
 
 const ListSlider = () => {
@@ -9,9 +9,9 @@ const ListSlider = () => {
   const [dataSliderTranslate, setDataSliderTranslate] = useState(null)
 
   useEffect(() => {
-    GET_DATA_FILTER("/movies", setDataSliderSerial, "سریال-ایرانی")
-    GET_DATA_FILTER("/movies", setDataSliderAnimation, "انیمیشن")
-    GET_DATA_FILTER("/movies", setDataSliderTranslate, "دوبله-فارسی")
+    GET_DATA_SLIDER("/movies", setDataSliderSerial, "سریال-ایرانی")
+    GET_DATA_SLIDER("/movies", setDataSliderAnimation, "انیمیشن")
+    GET_DATA_SLIDER("/movies", setDataSliderTranslate, "دوبله-فارسی")
   }, [])
 
 

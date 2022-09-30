@@ -529,96 +529,32 @@
       "downloads": [],
       "comments": [],
       "id": 11
-    }
-  ],
-  "BannerComingMovies": [
+    },
     {
-      "id": 2,
-      "image": "https://www.uptvs.com/wp-contents/uploads/2022/08/Medieval-3.jpg",
+      "faName": "من گروت هستم",
+      "enName": "I Am Groot",
+      "cover": "https://www.uptvs.com/wp-contents/uploads/2022/07/I-Am-Groot-s1-poster-207x290.jpg",
+      "category": "انیمیشن",
+      "type": "انیمیشن",
+      "country": "آمریکا",
+      "time": "43 دقیقه",
+      "actors": "Bradley Cooper، Vin Diesel،",
+      "imdb": "9",
+      "satisfaction": "86",
+      "poster": "https://www.uptvs.com/wp-contents/uploads/2022/07/I-Am-Groot-s1-Trailer-1.jpg",
+      "demo": "https://trailer.uptvs.com/trailer/I_Am_Groot_Official_Trailer.mp4",
+      "director": "نامشخص",
       "productionYear": "2022",
-      "enName": "Medieval",
-      "faName": "قروس وسطایی",
-      "type": "فیلم",
-      "date": "امروز"
-    },
-    {
-      "id": 3,
-      "image": "https://www.uptvs.com/wp-contents/uploads/2022/08/2-2.jpg",
-      "productionYear": "2022",
-      "enName": "Greatest Beer Run Ever",
-      "faName": "",
-      "type": "فیلم",
-      "date": "امروز"
-    },
-    {
-      "id": 4,
-      "image": "https://www.uptvs.com/wp-contents/uploads/2022/08/3-3.jpg",
-      "productionYear": "2022",
-      "enName": "Lou",
-      "faName": "لو",
-      "type": "فیلم",
-      "date": "دیروز"
-    },
-    {
-      "id": 5,
-      "image": "https://www.uptvs.com/wp-contents/uploads/2022/01/origin.jpg",
-      "productionYear": "2022",
-      "enName": "Witcher Blood Origin",
-      "faName": "",
-      "type": "سریال",
-      "date": "امروز"
-    },
-    {
-      "id": 6,
-      "image": "https://www.uptvs.com/wp-contents/uploads/2021/12/adam.jpg",
-      "productionYear": "2022",
-      "enName": "Black Adam",
-      "faName": "بلک آدام",
-      "type": "فیلم",
-      "date": "14d مانده"
-    },
-    {
-      "id": 7,
-      "image": "https://www.uptvs.com/wp-contents/uploads/2022/05/Avatar-The-Way-of-Water-jadval.jpg",
-      "productionYear": "2022",
-      "enName": "Avatar",
-      "faName": "آواتار",
-      "type": "فیلم",
-      "date": "30d مانده"
-    }
-  ],
-  "bannernewmovies": [
-    {
-      "id": 1,
-      "cover": "https://www.uptvs.com/wp-contents/uploads/2022/08/Dc-League-of-Super-Pets-Header.jpg"
-    },
-    {
-      "id": 2,
-      "cover": "https://www.uptvs.com/wp-contents/uploads/2022/08/Samaritan-2022-Header.jpg"
-    },
-    {
-      "id": 3,
-      "cover": "https://www.uptvs.com/wp-contents/uploads/2022/08/Bigonah-1.jpg"
-    },
-    {
-      "id": 4,
-      "cover": "https://www.uptvs.com/wp-contents/uploads/2021/10/House-of-the-Dragon-s1-Header.jpg"
-    },
-    {
-      "id": 5,
-      "cover": "https://www.uptvs.com/wp-contents/uploads/2022/08/See-s3-Header.jpg"
-    },
-    {
-      "id": 6,
-      "cover": "https://www.uptvs.com/wp-contents/uploads/2022/08/Dead-Zone-2022-Header-1.jpg"
-    },
-    {
-      "id": 7,
-      "cover": "https://www.uptvs.com/wp-contents/uploads/2022/08/Shamshera-2022-Header-1.jpg"
-    },
-    {
-      "id": 8,
-      "cover": "https://www.uptvs.com/wp-contents/uploads/2022/08/luck-Header.jpg"
+      "permissibleAge": "13",
+      "genre": "انیمیشن,اکشن",
+      "story": "در انیمیشن من گروت هستم : درباره گروت خردسال و بازیگوش است که یاد می گیرد چه طور با کمک دوستان و خانواده اش، در تیم ابرقهرمانان نگهبانان کهکشان رشد کند و بزرگ شود.",
+      "aboutTheMovie": "انیمیشن I Am Groot محصول کشور آمریکا و در ژانر انیمیشن ، اکشن می‌باشد و به کارگردانی در سال 2022 ساخته شده است. در انیمیشن من گروت هستم بازیگرانی چون Bradley Cooper، Vin Diesel، و... به ایفای نقش پرداخته اند. ",
+      "slider": true,
+      "bannerNewMovie": false,
+      "coming": false,
+      "downloads": [],
+      "comments": [],
+      "id": 12
     }
   ]
 }

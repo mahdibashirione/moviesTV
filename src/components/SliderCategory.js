@@ -20,7 +20,6 @@ const SliderCategory = ({ dataMovies, title }) => {
               <span className="ml-1 bg-yellow-500 rounded p-0.5 text-[11px]">IMDB</span>
             </p>
           </div>
-          <span className="absolute bottom-2 left-2 text-[11px] bg-yellow-500 p-1 rounded-md group-hover:opacity-0 duration-300 ">{movie.broadcastDays}</span>
         </div>
         <span className="line-clamp-1 text-base">{movie.type} {movie.faName}</span>
         <span className="line-clamp-1 text-gray-600 text-sm flex items-center gap-x-1">{movie.enName} {movie.productionYear}</span>
