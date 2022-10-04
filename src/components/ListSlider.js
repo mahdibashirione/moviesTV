@@ -1,3 +1,4 @@
+import { Skeleton } from "@mui/material";
 import { useEffect, useState } from "react";
 import GET_DATA_SLIDER from "../utils/getDataSlider";
 import SliderCategory from "./SliderCategory";
@@ -16,53 +17,29 @@ const ListSlider = () => {
 
 
   const CardLoadingSlider = () => {
+
+    const LayoutCard = () => {
+      return (
+        <div className="flex flex-col gap-y-1">
+          <Skeleton variant="rounded" height={235} width={180} sx={{ bgcolor: "grey.800" }} />
+          <Skeleton variant="text" width={130} sx={{ bgcolor: "grey.800", fontSize: "1rem" }} />
+          <Skeleton variant="text" width={64} sx={{ bgcolor: "grey.800", fontSize: "0.75rem" }} />
+        </div>
+      )
+    }
+
     return (
-      <article className="md:container w-full duration-400 animate-pulse">
-        <div className="w-full flex items-center justify-between py-4">
-          <span className="bg-gray-600 block rounded-full w-40 h-5"></span>
-          <span className="bg-gray-600 block rounded-full w-16 h-3"></span>
+      <article className="md:container w-full duration-400 animate-pulse pr-2">
+        <div className="w-full flex items-center justify-between py-3">
+          <Skeleton variant="text" height={40} width={130} sx={{ bgcolor: "grey.800" }} />
+          <Skeleton variant="text" height={20} width={64} sx={{ bgcolor: "grey.800" }} />
         </div>
         <div className="w-full flex items-center justify-start gap-x-2 overflow-x-scroll">
-          <div>
-            <span className="bg-gray-600 block rounded-lg w-[180px] h-[235px]"></span>
-            <span className="bg-gray-600 block rounded-full w-28 h-3 my-4"></span>
-            <span className="bg-gray-600 block rounded-full w-16 h-3"></span>
-          </div>
-          <div>
-            <span className="bg-gray-600 block rounded-lg w-[180px] h-[235px]"></span>
-            <span className="bg-gray-600 block rounded-full w-28 h-3 my-4"></span>
-            <span className="bg-gray-600 block rounded-full w-16 h-3"></span>
-          </div>
-          <div>
-            <span className="bg-gray-600 block rounded-lg w-[180px] h-[235px]"></span>
-            <span className="bg-gray-600 block rounded-full w-28 h-3 my-4"></span>
-            <span className="bg-gray-600 block rounded-full w-16 h-3"></span>
-          </div>
-          <div>
-            <span className="bg-gray-600 block rounded-lg w-[180px] h-[235px]"></span>
-            <span className="bg-gray-600 block rounded-full w-28 h-3 my-4"></span>
-            <span className="bg-gray-600 block rounded-full w-16 h-3"></span>
-          </div>
-          <div>
-            <span className="bg-gray-600 block rounded-lg w-[180px] h-[235px]"></span>
-            <span className="bg-gray-600 block rounded-full w-28 h-3 my-4"></span>
-            <span className="bg-gray-600 block rounded-full w-16 h-3"></span>
-          </div>
-          <div>
-            <span className="bg-gray-600 block rounded-lg w-[180px] h-[235px]"></span>
-            <span className="bg-gray-600 block rounded-full w-28 h-3 my-4"></span>
-            <span className="bg-gray-600 block rounded-full w-16 h-3"></span>
-          </div>
-          <div>
-            <span className="bg-gray-600 block rounded-lg w-[180px] h-[235px]"></span>
-            <span className="bg-gray-600 block rounded-full w-28 h-3 my-4"></span>
-            <span className="bg-gray-600 block rounded-full w-16 h-3"></span>
-          </div>
-          <div>
-            <span className="bg-gray-600 block rounded-lg w-[180px] h-[235px]"></span>
-            <span className="bg-gray-600 block rounded-full w-28 h-3 my-4"></span>
-            <span className="bg-gray-600 block rounded-full w-16 h-3"></span>
-          </div>
+          <LayoutCard />
+          <LayoutCard />
+          <LayoutCard />
+          <LayoutCard />
+          <LayoutCard />
         </div>
       </article>
     )

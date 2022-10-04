@@ -5,6 +5,7 @@ import { FiChevronDown, FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button"
 import Backdrop from "@mui/material/Backdrop";
+import { Skeleton } from "@mui/material";
 
 const AdminPage = () => {
 
@@ -24,96 +25,36 @@ const AdminPage = () => {
   }
 
   const LoadingListMovies = () => {
+
+    const ResultItem = () => {
+      return (
+        <div className="w-full container flex items-center justify-center animate-pulse gap-x-5">
+          <Skeleton variant="rounded" height={55} width={55} animation="wave" />
+          <Skeleton variant="text" width={80} animation="wave" sx={{ fontSize: "1rem" }} />
+          <Skeleton variant="text" width={80} animation="wave" sx={{ fontSize: "1rem" }} />
+          <div className="md:block hidden">
+            <Skeleton variant="text" width={55} animation="wave" sx={{ fontSize: "1rem" }} />
+          </div>
+          <div className="md:block hidden">
+            <Skeleton variant="text" width={55} animation="wave" sx={{ fontSize: "1rem" }} />
+          </div>
+          <div className="md:block hidden">
+            <Skeleton variant="text" width={55} animation="wave" sx={{ fontSize: "1rem" }} />
+          </div>
+          <Skeleton variant="text" width={55} animation="wave" sx={{ fontSize: "1rem" }} />
+        </div>
+      )
+    }
+
     return (
       <article className="w-full items-center p-4 flex flex-col gap-y-5 relative">
-        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
-          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
-            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
-          </div>
-          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
-        </div>
-        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
-          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
-            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
-          </div>
-          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
-        </div>
-        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
-          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
-            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
-          </div>
-          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
-        </div>
-        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
-          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
-            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
-          </div>
-          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
-        </div>
-        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
-          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
-            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
-          </div>
-          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
-        </div>
-        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
-          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
-            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
-          </div>
-          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
-        </div>
-        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
-          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
-            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
-          </div>
-          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
-        </div>
-        <div className="w-full container flex items-center justify-center animate-pulse gap-x-6">
-          <div className="w-14 rounded-lg h-14 bg-gray-400 flex items-center justify-center">
-            <span className="w-8 h-8 rounded-full border-4 border-zinc-800 border-l-transparent animate-spin"></span>
-          </div>
-          <span className="md:block w-20 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-20 rounded-full h-4 bg-gray-400"></span>
-          <span className="md:block w-14 rounded-full h-4 bg-gray-400 hidden"></span>
-          <span className="w-14 rounded-full h-4 bg-gray-400"></span>
-          <span className="w-14 rounded-lg h-7 bg-gray-400 flex justify-end items-center"><FiChevronDown /></span>
-        </div>
+        <ResultItem />
+        <ResultItem />
+        <ResultItem />
+        <ResultItem />
+        <ResultItem />
+        <ResultItem />
+        <ResultItem />
         <div className="absolute top-0 right-0 bg-gradient-to-t from-white z-30 w-full h-full"></div>
       </article>
     )

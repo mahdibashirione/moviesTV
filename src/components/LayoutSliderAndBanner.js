@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ListSlider from "./ListSlider";
 import { FiLoader } from "react-icons/fi"
 import GET_BANNER from "../utils/getBanner";
+import { Skeleton } from "@mui/material";
 
 const LayoutSliderAndBanner = () => {
 
@@ -15,13 +16,10 @@ const LayoutSliderAndBanner = () => {
   const CardLoadingBanner = () => {
     return (
       <>
-        <span className="w-full h-24 rounded-lg bg-gray-500 animate-pulse"></span>
-        <span className="w-full h-24 rounded-lg bg-gray-500 animate-pulse"></span>
-        <span className="w-full h-24 rounded-lg bg-gray-500 animate-pulse"></span>
-        <span className="w-full h-24 rounded-lg bg-gray-500 animate-pulse"></span>
-        <span className="w-full h-24 rounded-lg bg-gray-500 animate-pulse"></span>
-        <span className="w-full h-24 rounded-lg bg-gray-500 animate-pulse"></span>
-        <span className="w-full h-24 rounded-lg bg-gray-500 animate-pulse"></span>
+        <Skeleton variant="rounded" height={95} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={95} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={95} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={95} sx={{ bgcolor: "grey.800" }} />
       </>
     )
   }

@@ -1,17 +1,7 @@
+import { Skeleton } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import http from "../services/httpServices";
-import { FiHeart } from "react-icons/fi";
 
 
 const BannerNewMovies = () => {
@@ -34,21 +24,21 @@ const BannerNewMovies = () => {
   const CardLoadingBanner = () => {
     return (
       <>
-        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
-        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
-        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
-        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
-        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
-        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
-        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
-        <span className="animate-pulse w-full h-44 rounded-lg overflow-hidden mr-3 bg-gray-600 flex items-center justify-center"></span>
+        <Skeleton variant="rounded" height={176} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={176} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={176} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={176} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={176} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={176} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={176} sx={{ bgcolor: "grey.800" }} />
+        <Skeleton variant="rounded" height={176} sx={{ bgcolor: "grey.800" }} />
       </>
     )
   }
 
   return (
     <section className="w-full bg-zinc-900/90">
-      <div className="py-6 px-2 w-full container gap-2.5 grid grid-rows-2 grid-cols-[repeat(4,300px)] xl:grid-cols-4 overflow-x-scroll">
+      <div className="py-6 px-4 w-full container gap-2.5 grid grid-rows-2 grid-cols-[repeat(4,300px)] xl:grid-cols-4 overflow-x-scroll">
         {dataBanner ? dataBanner.map(movie => {
           return (
             <Link key={movie.id} to={`/movie/${movie.id}/${movie.faName}`} state={movie} className="group relative w-full h-44 rounded-lg block overflow-hidden mr-3">
