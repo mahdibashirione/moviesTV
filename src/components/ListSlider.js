@@ -29,7 +29,7 @@ const ListSlider = () => {
     }
 
     return (
-      <article className="md:container w-full duration-400 animate-pulse pr-2">
+      <article className="md:container w-full duration-400 animate-pulse pr-2 mb-4">
         <div className="w-full flex items-center justify-between py-3">
           <Skeleton variant="text" height={40} width={130} sx={{ bgcolor: "grey.800" }} />
           <Skeleton variant="text" height={20} width={64} sx={{ bgcolor: "grey.800" }} />
