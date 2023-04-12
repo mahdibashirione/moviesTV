@@ -1,11 +1,10 @@
 import { useRef, useState } from "react";
-import { FiMenu, FiSearch, FiChevronDown, } from "react-icons/fi";
+import { FiMenu, FiSearch, FiChevronDown } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { Disclosure } from '@headlessui/react'
+import { Disclosure } from "@headlessui/react";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
-
   const [navData, setNavData] = useState([
     {
       id: 1,
@@ -18,7 +17,7 @@ const Header = () => {
         { name: "هندی", url: "" },
         { name: "تخیلی", url: "" },
         { name: "همه فیلم های خارجی", url: "" },
-      ]
+      ],
     },
     {
       id: 2,
@@ -31,33 +30,48 @@ const Header = () => {
         { name: "خوانوادگی", url: "" },
         { name: "رزمی", url: "" },
         { name: "همه فیلم های خارجی", url: "" },
-      ]
+      ],
     },
     {
       id: 3,
       title: "انیمیشن",
       url: "",
-      items: [{ name: "دوبله فارسی", url: "" }, { name: "زبان اصلی", url: "" },]
+      items: [
+        { name: "دوبله فارسی", url: "" },
+        { name: "زبان اصلی", url: "" },
+      ],
     },
-  ])
+  ]);
 
-  const nav = useRef()
-  const location = useLocation()
+  const nav = useRef();
+  const location = useLocation();
 
-  const isHomePage = location.pathname === "/"
+  const isHomePage = location.pathname === "/";
 
   const handleCloseNavbar = (e) => {
-    e.target.className.includes("navbar") && nav.current.classList.replace("left-0", "left-full")
-  }
+    e.target.className.includes("navbar") &&
+      nav.current.classList.replace("left-0", "left-full");
+  };
 
   return (
-    <header className={`${isHomePage ? "sticky to-zinc-900/90" : "fixed"} w-full top-0 z-40 bg-gradient-to-b from-zinc-900/90 text-white bg-blur`}>
+    <header
+      className={`${
+        isHomePage ? "sticky to-zinc-900/90" : "fixed"
+      } w-full top-0 z-40 bg-gradient-to-b from-zinc-900/90 text-white bg-blur`}
+    >
       <div className="container w-full px-4 py-4 md:py-0 flex justify-between items-center">
-        <FiMenu className="text-xl outline-none cursor-pointer md:hidden" onClick={() => nav.current.classList.replace("left-full", "left-0")} />
+        <FiMenu
+          className="text-xl outline-none cursor-pointer md:hidden"
+          onClick={() => nav.current.classList.replace("left-full", "left-0")}
+        />
         {/* navMobile */}
-        <div onClick={e => handleCloseNavbar(e)} ref={nav} className="bg-blur navbar md:hidden md:left-full absolute top-0 left-full duration-300 w-screen h-screen z-40 bg-zinc-900/80" >
-          <div className="border-l border-gray-500 w-[65%] h-full max-h-full bg-zinc-900 text-white overflow-y-scroll flex flex-col justify-start items-start">
-            {navData.map(nav => {
+        <div
+          onClick={(e) => handleCloseNavbar(e)}
+          ref={nav}
+          className="bg-blur navbar md:hidden md:left-full absolute top-0 left-full duration-300 w-screen h-screen z-40 bg-zinc-900/80"
+        >
+          <div className="border-l border-gray-500 w-[65%] h-full max-h-full bg-zinc-900 text-white overflow-y-scroll scrollbar-none flex flex-col justify-start items-start">
+            {navData.map((nav) => {
               return (
                 <Disclosure key={nav.id} className="border-b">
                   {({ open }) => (
@@ -67,19 +81,27 @@ const Header = () => {
                         <FiChevronDown />
                       </Disclosure.Button>
                       <Disclosure.Panel className="w-full px-6 text-sm text-gray-300">
-                        {nav.items &&
+                        {nav.items && (
                           <ul className="w-full py-2">
                             {nav.items.map((navItem, index) => {
                               return (
-                                <li key={index}><Link to={navItem.url} className="rounded whitespace-nowrap p-2.5 hover:bg-gray-200 hover:text-gray-700 flex w-full h-full" >{navItem.name}</Link></li>
-                              )
+                                <li key={index}>
+                                  <Link
+                                    to={navItem.url}
+                                    className="rounded whitespace-nowrap p-2.5 hover:bg-gray-200 hover:text-gray-700 flex w-full h-full"
+                                  >
+                                    {navItem.name}
+                                  </Link>
+                                </li>
+                              );
                             })}
-                          </ul>}
+                          </ul>
+                        )}
                       </Disclosure.Panel>
                     </>
                   )}
                 </Disclosure>
-              )
+              );
             })}
           </div>
         </div>
@@ -87,34 +109,45 @@ const Header = () => {
         {/*navPc*/}
         <nav className="h-full hidden md:block text-sm lg:text-base">
           <ul className="h-full flex items-center justify-center gap-x-2">
-            {navData.map(nav => {
+            {navData.map((nav) => {
               return (
                 //navTitle
-                <li key={nav.id} className="group relative h-full cursor-pointer flex items-center justify-start gap-x-2 py-5 hover:text-orange-500 duration-200">
+                <li
+                  key={nav.id}
+                  className="group relative h-full cursor-pointer flex items-center justify-start gap-x-2 py-5 hover:text-orange-500 duration-200"
+                >
                   {nav.title}
                   <FiChevronDown className="ml-2" />
-                  {nav.items &&
+                  {nav.items && (
                     <ul className="group-hover:block hidden rounded-lg p-2 absolute min-w-full shadow border border-gray-400 bg-zinc-900/90 bg-blur top-[90%] right-0 text-white">
                       {nav.items.map((navItem, index) => {
                         return (
-                          <li key={index}><Link to={navItem.url} className="rounded whitespace-nowrap p-2 hover:text-orange-500 flex w-full h-full" >{navItem.name}</Link></li>
-                        )
+                          <li key={index}>
+                            <Link
+                              to={navItem.url}
+                              className="rounded whitespace-nowrap p-2 hover:text-orange-500 flex w-full h-full"
+                            >
+                              {navItem.name}
+                            </Link>
+                          </li>
+                        );
                       })}
-                    </ul>}
+                    </ul>
+                  )}
                 </li>
-              )
+              );
             })}
           </ul>
         </nav>
         {/*search*/}
         <div className="hidden md:flex items-center justify-start bg-zinc-700 p-2 rounded-lg">
           <FiSearch className="text-xl ml-2" />
-          <input type={"search"} placeholder="جستوجو" className="outline-none bg-transparent" />
+          <input placeholder="جستوجو" className="outline-none bg-transparent" />
         </div>
         <FiSearch className="text-xl md:hidden" />
       </div>
     </header>
   );
-}
+};
 
 export default Header;

@@ -16,4 +16,9 @@
     backdrop-filter: blur(13px);
     -webkit-backdrop-filter: blur(20px);
   }
+
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none !important;
+  }
 }
