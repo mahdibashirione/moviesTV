@@ -12,24 +12,16 @@ import {
   FiMessageCircle,
 } from "react-icons/fi";
 import { useLocation } from "react-router-dom";
-import GET_DATA from "../utils/getData";
-import { data } from "../server/data";
-const server = data;
+import useFetch from "../Hook/useFetch";
 
 const SingleMoviePage = () => {
-  const [data, setData] = useState(null);
+  const { state } = useLocation();
+  const idMovie = state.id;
 
-  const location = useLocation();
-  const idMovie = location.state.id;
-
-  const boxComment = useRef();
+  const { data, error, loading } = useFetch(`/movies/${idMovie}`);
   const [isOpenBoxComment, setIsOpenBoxComment] = useState(true);
 
-  useEffect(() => {
-    // GET_DATA(`/movies/${idMovie}`, setData)
-    const movie = server.filter((movie) => movie.id === idMovie);
-    setData(movie[0]);
-  }, []);
+  const boxComment = useRef();
 
   function handleIsOpenBoxComment() {
     setIsOpenBoxComment([...boxComment.current.classList].includes("max-h-0"));
@@ -85,6 +77,8 @@ const SingleMoviePage = () => {
       </Backdrop>
     );
   };
+
+  if (error) return <h2 className="text-red-500 w-full text-center">Error</h2>;
 
   return (
     <>

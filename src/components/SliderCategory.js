@@ -55,9 +55,12 @@ const SliderCategory = ({ title, filter }) => {
             </h2>
           )}
           {data &&
-            data.map((item) => {
-              return <CardMovie key={item.id} movie={item} />;
-            })}
+            data
+              .filter((movie) => movie.category === filter)
+              .slice(0, 6)
+              .map((item) => {
+                return <CardMovie key={item.id} movie={item} />;
+              })}
           {loading &&
             [1, 2, 3, 4].map((loading) => (
               <span className="block max-w-[210px] min-w-[210px] h-[300px] bg-zinc-700 animate-pulse rounded-lg"></span>
