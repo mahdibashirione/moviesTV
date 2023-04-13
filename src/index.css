@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: IranSans;
-  src: url(../public/font/IRANSansWeb.ttf);
+  font-family: "Estedad";
+  src: url(../public/font/Estedad-Regular.ttf);
 }
 
 @layer components {
   html {
-    font-family: "IranSans";
+    font-family: "Estedad";
   }
 
   .bg-blur {

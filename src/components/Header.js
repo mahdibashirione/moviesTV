@@ -105,7 +105,7 @@ const Header = () => {
             })}
           </div>
         </div>
-        <span>online TV</span>
+        <span className="select-none">online TV</span>
         {/*navPc*/}
         <nav className="h-full hidden md:block text-sm lg:text-base">
           <ul className="h-full flex items-center justify-center gap-x-2">
@@ -139,12 +139,13 @@ const Header = () => {
             })}
           </ul>
         </nav>
-        {/*search*/}
-        <div className="hidden md:flex items-center justify-start bg-zinc-700 p-2 rounded-lg">
-          <FiSearch className="text-xl ml-2" />
-          <input placeholder="جستوجو" className="outline-none bg-transparent" />
-        </div>
-        <FiSearch className="text-xl md:hidden" />
+        <Link to="/" className="w-8 h-8">
+          <img
+            className="w-full object-cover"
+            src="/image/logoGPT.png"
+            alt="logo"
+          />
+        </Link>
       </div>
     </header>
   );

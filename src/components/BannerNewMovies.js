@@ -1,27 +1,11 @@
 import { Skeleton } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import http from "../services/httpServices";
-import { data } from "../server/data";
+// import { data } from "../server/data";
+import useFetch from "../Hook/useFetch";
 
 const BannerNewMovies = () => {
-  const [dataBanner, setDataBanner] = useState(null);
-
-  useEffect(() => {
-    // GET_BANNER("/movies", setDataBanner);
-    setDataBanner(data);
-  }, []);
-
-  async function GET_BANNER(url, setState) {
-    try {
-      const { data } = await http.Get(url);
-      setState(
-        data.filter((movie) => movie.poster || movie.poster.length).slice(0, 8)
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const { data, error, loading } = useFetch("/movies");
 
   const CardLoadingBanner = () => {
     return (
@@ -41,8 +25,11 @@ const BannerNewMovies = () => {
   return (
     <section className="w-full bg-zinc-900/90">
       <div className="py-6 px-4 w-full container gap-2.5 grid grid-rows-2 grid-cols-[repeat(4,300px)] xl:grid-cols-4 overflow-x-scroll scrollbar-none">
-        {dataBanner ? (
-          dataBanner.map((movie) => {
+        {/* loading */}
+        {loading && <CardLoadingBanner />}
+        {/* data */}
+        {data &&
+          data.map((movie) => {
             return (
               <Link
                 key={movie.id}
@@ -75,10 +62,9 @@ const BannerNewMovies = () => {
                 </div>
               </Link>
             );
-          })
-        ) : (
-          <CardLoadingBanner />
-        )}
+          })}
+        {/* error */}
+        {error && <h2 className="text-red-500 select-none">Error</h2>}
       </div>
     </section>
   );

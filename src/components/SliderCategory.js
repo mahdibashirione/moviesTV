@@ -1,7 +1,9 @@
+import { Skeleton } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useFetch from "../Hook/useFetch";
 
-const SliderCategory = ({ dataMovies, title }) => {
+const SliderCategory = ({ title, filter }) => {
   const CardMovie = ({ movie }) => {
     return (
       <Link
@@ -35,23 +37,31 @@ const SliderCategory = ({ dataMovies, title }) => {
     );
   };
 
+  const { data, loading, error } = useFetch("/movies");
+
   return (
     <article className="w-full">
       <div className="w-full container">
         <div className="w-full flex items-center justify-between p-4">
           <span className="select-none font-bold lg:text-xl">{title}</span>
-          <button className="text-sm text-gray-500 md:hover:scale-110 duration-300">
+          <button className="text-sm text-gray-500 hover:text-blue-500 hover:scale-95 duration-300">
             مشاهده همه
           </button>
         </div>
-        <div className="w-full max-w-full flex items-center justify-start flex-nowrap overflow-x-scroll scrollbar-none pb-8 rounded-lg">
-          {dataMovies ? (
-            dataMovies.map((item) => {
-              return <CardMovie key={item.id} movie={item} />;
-            })
-          ) : (
-            <span>Loading...</span>
+        <div className="w-full max-w-full flex items-center justify-start flex-nowrap gap-2 overflow-x-scroll scrollbar-none pb-8 rounded-lg">
+          {error && (
+            <h2 className="w-full text-center text-red-500 select-none">
+              Error
+            </h2>
           )}
+          {data &&
+            data.map((item) => {
+              return <CardMovie key={item.id} movie={item} />;
+            })}
+          {loading &&
+            [1, 2, 3, 4].map((loading) => (
+              <span className="block max-w-[210px] min-w-[210px] h-[300px] bg-zinc-700 animate-pulse rounded-lg"></span>
+            ))}
         </div>
       </div>
     </article>
